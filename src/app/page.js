@@ -2,102 +2,128 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <div className="bg-[#0A0D08] font-satoshi">
+        {/* Hero Section */}
+        <section className="flex h-[900px] mt-12">
+          {/* Left side - Dark */}
+          <div className="flex-1 bg-[#0A0D08] px-[40px] md:px-[60px] lg:px-[80px] py-[40px] md:py-[60px] lg:py-[80px] flex items-end">
+            <div className="max-w-[750px]">
+              <p className="text-[#626262] text-[12px] mb-4 tracking-wide font-departure-mono uppercase">
+                A lovely little intro
+              </p>
+              <h1 className="text-[#B1B1B1] font-medium text-4xl md:text-3xl sm:text-2xl leading-relaxed mb-6 font-satoshi">
+                Hey, I’m Callum. I’m a designer & developer based in the south-east of the UK. I
+                currently work at Acquia as a Senior Product Designer.
+              </h1>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <div className="lg:w-[658px] md:w-[400px] sm:w-full bg-[#8b6f47] bg-[url('/images/hero.png')] bg-cover bg-center relative overflow-hidden"></div>
+        </section>
+
+        {/* Recent Projects Section */}
+        <section className="bg-[#11160E] px-[40px] md:px-[60px] lg:px-[80px] py-[40px] md:py-[60px] lg:py-[80px] flex flex-col">
+          <div className="max-w-[1600px] mx-auto w-full flex flex-col gap-10">
+            {/* Title Section */}
+            <div className="gap-2 mb-12">
+              <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase">
+                These are just some
+              </p>
+              <h2 className="text-[#B1B1B1] text-3xl md:text-2xl sm:text-xl font-satoshi">
+                Recent projects
+              </h2>
+            </div>
+
+            {/* Projects Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+              {/* Project 1 - Experience builder */}
+              <div className="w-full flex flex-col gap-5">
+                <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
+                  {/* Placeholder for project image */}
+                </div>
+                <h3 className="text-[#B1B1B1] text-lg font-satoshi mb-2">Experience builder</h3>
+                <p className="text-[#626262] text-sm font-satoshi">
+                  The low code site builder for Drupal.
+                </p>
+              </div>
+
+              {/* Project 2 - Site Studio */}
+              <div className="w-full flex flex-col gap-5">
+                <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
+                  {/* Placeholder for project image */}
+                </div>
+                <h3 className="text-[#B1B1B1] text-lg font-satoshi mb-2">Site Studio</h3>
+                <p className="text-[#626262] text-sm font-satoshi">
+                  A low code site builder used by the likes of Bayer Pharmaceutical.
+                </p>
+              </div>
+
+              {/* Project 3 - Wzis.dog */}
+              <div className="w-full flex flex-col gap-5">
+                <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
+                  {/* Placeholder for project image */}
+                </div>
+                <h3 className="text-[#B1B1B1] text-lg font-satoshi mb-2">Wzis.dog</h3>
+                <p className="text-[#626262] text-sm font-satoshi">
+                  The trendiest dog treat company going.
+                </p>
+              </div>
+
+              {/* Project 4 - Union Roasted */}
+              <div className="w-full flex flex-col gap-5">
+                <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
+                  {/* Placeholder for project image */}
+                </div>
+                <h3 className="text-[#B1B1B1] text-lg font-satoshi mb-2">Union Roasted</h3>
+                <p className="text-[#626262] text-sm font-satoshi">
+                  A website for one of the best coffee roasters around.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Currently Reading Section */}
+        <section className="bg-[#0A0D08] px-[40px] md:px-[60px] lg:px-[80px] py-[40px] md:py-[60px] lg:py-[80px]">
+          <div className="max-w-[1600px] mx-auto">
+            <div className="grid grid-cols-3 md:grid-cols-1 gap-8">
+              <div className="bg-[#2a2a2a] rounded-lg p-8 md:p-6 sm:p-6">
+                <div className="aspect-[3/4] bg-[#3a3a3a] rounded mb-6 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-white/20 text-4xl">📚</div>
+                  </div>
+                </div>
+                <h3 className="text-white font-semibold mb-2 font-departure-mono">
+                  Currently reading
+                </h3>
+              </div>
+
+              <div className="bg-[#2a2a2a] rounded-lg p-8 md:p-6 sm:p-6">
+                <div className="aspect-[3/4] bg-[#3a3a3a] rounded mb-6 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-white/20 text-4xl">📖</div>
+                  </div>
+                </div>
+                <h3 className="text-white font-semibold mb-2 font-departure-mono">
+                  Currently reading
+                </h3>
+              </div>
+
+              <div className="bg-[#2a2a2a] rounded-lg p-8 md:p-6 sm:p-6">
+                <div className="aspect-[3/4] bg-[#3a3a3a] rounded mb-6 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-white/20 text-4xl">📘</div>
+                  </div>
+                </div>
+                <h3 className="text-white font-semibold mb-2 font-departure-mono">
+                  Currently reading
+                </h3>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
