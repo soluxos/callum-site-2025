@@ -1,13 +1,26 @@
 import Image from "next/image";
+import ImageGrid from "@/components/ImageGrid/SimpleImageGrid";
 
 export default function Home() {
+  // Example usage
+  const imageArray = [
+    { src: "/images/hero-3.png", alt: "Image 1" },
+    { src: "/images/hero-2.png", alt: "Image 2" },
+    { src: "/images/hero.png", alt: "Image 3" },
+  ];
+
   return (
     <>
-      <div className="bg-[#0A0D08] font-satoshi">
+      <div className="bg-[#FF2B00] h-6 font-departure-mono uppercase flex flex-col justify-center items-center w-full">
+        <p className="text-white text-[12px] font-departure-mono uppercase">
+          Work in progress, rapidly building because I want to work at Plain.com
+        </p>
+      </div>
+      <div className="bg-[#0A0D08] font-satoshi flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section className="flex h-[900px] mt-12">
+        <section className="flex w-full h-[900px] mt-12 p-10 md:p-15 lg:p-20 relative flex-col">
           {/* Left side - Dark */}
-          <div className="flex-1 bg-[#0A0D08] px-[40px] md:px-[60px] lg:px-[80px] py-[40px] md:py-[60px] lg:py-[80px] flex items-end">
+          <div className="flex-1 bg-[#0A0D08] flex items-end">
             <div className="max-w-[750px]">
               <p className="text-[#626262] text-[12px] mb-4 tracking-wide font-departure-mono uppercase">
                 A lovely little intro
@@ -19,12 +32,23 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:w-[658px] md:w-[400px] sm:w-full bg-[#8b6f47] bg-[url('/images/hero.png')] bg-cover bg-center relative overflow-hidden"></div>
+          <div className="md:absolute right-0 top-0 lg:w-[658px] md:w-[400px] sm:w-full h-full bg-[#8b6f47] bg-[url('/images/hero-2.png')] bg-cover bg-center overflow-hidden p-10 md:p-15 lg:p-20 items-end flex">
+            <div className="flex flex-col gap-1">
+              <p className="text-white text-[12px] mb-4 tracking-wide font-departure-mono uppercase">
+                One of my happy places
+              </p>
+              <p className="text-white text-[16px] mb-4 tracking-wide font-departure-mono uppercase">
+                waterstones cafe, lewes
+              </p>
+            </div>
+          </div>
         </section>
 
+        {/* <ImageGrid images={imageArray} className="w-64 h-64" /> */}
+
         {/* Recent Projects Section */}
-        <section className="bg-[#11160E] px-[40px] md:px-[60px] lg:px-[80px] py-[40px] md:py-[60px] lg:py-[80px] flex flex-col">
-          <div className="max-w-[1600px] mx-auto w-full flex flex-col gap-10">
+        <section className="w-full bg-[#11160E] p-10 md:p-15 lg:p-20 flex flex-col">
+          <div className="w-full flex flex-col gap-10">
             {/* Title Section */}
             <div className="gap-2 mb-12">
               <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase">
@@ -83,42 +107,84 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/* Currently Reading Section */}
-        <section className="bg-[#0A0D08] px-[40px] md:px-[60px] lg:px-[80px] py-[40px] md:py-[60px] lg:py-[80px]">
-          <div className="max-w-[1600px] mx-auto">
-            <div className="grid grid-cols-3 md:grid-cols-1 gap-8">
-              <div className="bg-[#2a2a2a] rounded-lg p-8 md:p-6 sm:p-6">
-                <div className="aspect-[3/4] bg-[#3a3a3a] rounded mb-6 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-white/20 text-4xl">📚</div>
-                  </div>
-                </div>
-                <h3 className="text-white font-semibold mb-2 font-departure-mono">
-                  Currently reading
-                </h3>
+        <section className="bg-[linear-gradient(to_right,#1D211B_0%,#1D211B_50%,#1D241A_50%,#1D241A_100%)] w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            {/* Currently Building */}
+            <div className="flex flex-col justify-between bg-[#1D211B] min-h-[600px] p-10 md:p-15 lg:p-20">
+              <div className="">
+                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+                  So right now I&apos;m
+                </p>
+                <h2 className="text-[#B1B1B1] text-[24px] font-satoshi font-medium">Building</h2>
+              </div>
+              <Image
+                src="/images/your-next-tale.png"
+                alt="Your Next Tale"
+                width={746}
+                height={502}
+                className="w-full h-auto"
+                quality={100}
+                priority
+              />
+              <div>
+                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+                  Your Next Tale
+                </p>
+                <h4 className="text-[#B1B1B1] text-lg font-satoshi">
+                  A digital book case for fantasy and sci-fi novels.
+                </h4>
+              </div>
+            </div>
+
+            {/* Currently Reading */}
+            <div className="flex flex-col justify-between bg-[#2E312C] min-h-[600px] p-10 md:p-15 lg:p-20">
+              <div className="mb-6">
+                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+                  If you must know I&apos;m
+                </p>
+                <h2 className="text-[#B1B1B1] text-[24px] font-satoshi font-medium">Reading</h2>
               </div>
 
-              <div className="bg-[#2a2a2a] rounded-lg p-8 md:p-6 sm:p-6">
-                <div className="aspect-[3/4] bg-[#3a3a3a] rounded mb-6 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-white/20 text-4xl">📖</div>
-                  </div>
-                </div>
-                <h3 className="text-white font-semibold mb-2 font-departure-mono">
-                  Currently reading
-                </h3>
+              <Image
+                src="/images/books/book-group.png"
+                alt="Group of books"
+                width={380}
+                height={409}
+                className="w-full h-auto"
+                priority
+              />
+              <div>
+                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+                  Million Dollar Weekend
+                </p>
+                <h4 className="text-[#B1B1B1] text-lg font-satoshi">By Noah Kagan</h4>
+              </div>
+            </div>
+
+            {/* Currently Watching */}
+            <div className="flex flex-col justify-between bg-[#1D241A] min-h-[600px] p-10 md:p-15 lg:p-20">
+              <div className="mb-6">
+                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+                  This is what I&apos;m
+                </p>
+                <h2 className="text-[#B1B1B1] text-[24px] font-satoshi font-medium">Watching</h2>
               </div>
 
-              <div className="bg-[#2a2a2a] rounded-lg p-8 md:p-6 sm:p-6">
-                <div className="aspect-[3/4] bg-[#3a3a3a] rounded mb-6 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-white/20 text-4xl">📘</div>
-                  </div>
-                </div>
-                <h3 className="text-white font-semibold mb-2 font-departure-mono">
-                  Currently reading
-                </h3>
+              <Image
+                src="/images/tv/tv-group.png"
+                alt="Your Next Tale"
+                width={407}
+                height={271}
+                className="w-full h-auto"
+                priority
+              />
+
+              <div>
+                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+                  Berserk
+                </p>
+                <h4 className="text-[#B1B1B1] text-lg font-satoshi">By Kentaro Miura</h4>
               </div>
             </div>
           </div>
