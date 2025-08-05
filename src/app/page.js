@@ -11,28 +11,28 @@ export default function Home() {
 
   return (
     <>
-      <div className="bg-[#FF2B00] h-6 font-departure-mono uppercase flex flex-col justify-center items-center w-full">
+      <div className="bg-[#FF2B00] min-h-6 font-departure-mono uppercase flex flex-col justify-center items-center w-full px-10 md:px-15 lg:px-20 mt-[48px] xs:mt-0">
         <p className="text-white text-[12px] font-departure-mono uppercase">
           Work in progress, rapidly building because I want to work at Plain.com
         </p>
       </div>
       <div className="bg-[#0A0D08] font-satoshi flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section className="flex w-full h-[900px] mt-12 p-10 md:p-15 lg:p-20 relative flex-col">
+        <section className="flex w-full h-[900px] relative flex-row">
           {/* Left side - Dark */}
-          <div className="flex-1 bg-[#0A0D08] flex items-end">
-            <div className="max-w-[750px]">
+          <div className="flex-1 bg-[#0A0D08] flex flex-col items-end h-full p-10 md:p-15 lg:p-20">
+            <div className="max-w-[750px] mt-auto">
               <p className="text-[#626262] text-[12px] mb-4 tracking-wide font-departure-mono uppercase">
                 A lovely little intro
               </p>
-              <h1 className="text-[#B1B1B1] font-medium text-4xl md:text-3xl sm:text-2xl leading-relaxed mb-6 font-satoshi">
+              <h1 className="text-[#B1B1B1] font-medium text-4xl md:text-3xl sm:text-2xl leading-relaxed font-satoshi">
                 Hey, I’m Callum. I’m a designer & developer based in the south-east of the UK. I
                 currently work at Acquia as a Senior Product Designer.
               </h1>
             </div>
           </div>
 
-          <div className="md:absolute right-0 top-0 lg:w-[658px] md:w-[400px] sm:w-full h-full bg-[#8b6f47] bg-[url('/images/hero-2.png')] bg-cover bg-center overflow-hidden p-10 md:p-15 lg:p-20 items-end flex">
+          <div className="lg:w-[41.75%] md:w-[41.75%] sm:w-full h-full bg-[#000] bg-[url('/images/hero-2.png')] bg-cover bg-center overflow-hidden p-10 md:p-15 lg:p-20 items-end flex">
             <div className="flex flex-col gap-1">
               <p className="text-white text-[12px] mb-4 tracking-wide font-departure-mono uppercase">
                 One of my happy places
@@ -66,10 +66,12 @@ export default function Home() {
                 <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
                   {/* Placeholder for project image */}
                 </div>
-                <h3 className="text-[#B1B1B1] text-lg font-satoshi mb-2">Experience builder</h3>
-                <p className="text-[#626262] text-sm font-satoshi">
-                  The low code site builder for Drupal.
-                </p>
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-[#B1B1B1] text-lg font-satoshi">Experience builder</h3>
+                  <p className="text-[#626262] text-sm font-satoshi">
+                    The low code site builder for Drupal.
+                  </p>
+                </div>
               </div>
 
               {/* Project 2 - Site Studio */}
@@ -77,10 +79,12 @@ export default function Home() {
                 <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
                   {/* Placeholder for project image */}
                 </div>
-                <h3 className="text-[#B1B1B1] text-lg font-satoshi mb-2">Site Studio</h3>
-                <p className="text-[#626262] text-sm font-satoshi">
-                  A low code site builder used by the likes of Bayer Pharmaceutical.
-                </p>
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-[#B1B1B1] text-lg font-satoshi">Site Studio</h3>
+                  <p className="text-[#626262] text-sm font-satoshi">
+                    A low code site builder used by the likes of Bayer Pharmaceutical.
+                  </p>
+                </div>
               </div>
 
               {/* Project 3 - Wzis.dog */}
@@ -88,10 +92,12 @@ export default function Home() {
                 <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
                   {/* Placeholder for project image */}
                 </div>
-                <h3 className="text-[#B1B1B1] text-lg font-satoshi mb-2">Wzis.dog</h3>
-                <p className="text-[#626262] text-sm font-satoshi">
-                  The trendiest dog treat company going.
-                </p>
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-[#B1B1B1] text-lg font-satoshi">Wzis.dog</h3>
+                  <p className="text-[#626262] text-sm font-satoshi">
+                    The trendiest dog treat company going.
+                  </p>
+                </div>
               </div>
 
               {/* Project 4 - Union Roasted */}
@@ -99,10 +105,12 @@ export default function Home() {
                 <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
                   {/* Placeholder for project image */}
                 </div>
-                <h3 className="text-[#B1B1B1] text-lg font-satoshi mb-2">Union Roasted</h3>
-                <p className="text-[#626262] text-sm font-satoshi">
-                  A website for one of the best coffee roasters around.
-                </p>
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-[#B1B1B1] text-lg font-satoshi">Union Roasted</h3>
+                  <p className="text-[#626262] text-sm font-satoshi">
+                    A website for one of the best coffee roasters around.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

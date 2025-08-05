@@ -1,88 +1,103 @@
 @import "tailwindcss";
 
-/* CSS Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  @font-face {
-    font-family: "Satoshi-BoldItalic";
-    src:
-      url("/fonts/Satoshi-BoldItalic.woff2") format("woff2"),
-      url("/fonts/Satoshi-BoldItalic.woff") format("woff"),
-      url("/fonts/Satoshi-BoldItalic.ttf") format("truetype");
-    font-weight: 700;
-    font-display: swap;
-    font-style: italic;
+/* CSS Reset - Using @layer base so it doesn't override Tailwind utilities */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
-  d: #0a0d08;
-  color: #ffffff;
-  background-color: #0a0d08;
+
+  /* Remove the universal margin reset that conflicts with Tailwind */
+  html,
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  dl,
+  dd,
+  ol,
+  ul,
+  figure,
+  hr,
+  fieldset,
+  legend {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    background-color: #0a0d08;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
 }
 
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+@theme {
+  --breakpoint-xs: 30rem;
 }
 
 /* DepartureMono Font */
@@ -288,4 +303,12 @@ table {
   font-family: "DepartureMono", "departure_monoergular", "Courier New", monospace !important;
   background: red;
   color: white;
+}
+
+/* Nav max width */
+
+@layer utilities {
+  .nav-max-width {
+    max-width: calc(100vw - 80px);
+  }
 }

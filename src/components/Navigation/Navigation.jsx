@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Navigation() {
   return (
     <>
-      <div className="nav-block fixed top-5 left-10 md:left-15 lg:left-20 transform z-50 flex items-center gap-[10px] max-w-[calc(100vw - 48px)]">
+      <div className="nav-block fixed top-0 xs:top-5 xs:left-10 md:left-15 lg:left-20 transform z-50 flex items-center gap-[10px]">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -17,13 +17,15 @@ export default function Navigation() {
             bounce: 0.5,
             duration: 0.8,
           }}
-          className="bg-[rgba(255,255,255,0.08)] backdrop-blur-sm h-12 rounded-[8px] flex items-center gap-4 w-auto relative max-w-[calc(100vw - 48px)]"
+          className="bg-[rgba(255,255,255,0.08)] backdrop-blur-sm h-12 xs:rounded-[8px] flex items-center gap-4 w-[100vw] xs:w-auto relative max-w-full xs:max-w-[calc(100vw-80px)] justify-center xs:justify-start"
         >
           <a href="/" className="flex flex-col items-start pl-5">
             <p className="font-departure-mono uppercase text-[#8D8D8D] text-[10px] whitespace-nowrap">
               Hey I'm
             </p>
-            <p className="font-departure-mono uppercase text-[12px]">Callum Harrod</p>
+            <p className="font-departure-mono uppercase text-[12px]">
+              Callum <span className="hidden sm:inline">Harrod</span>
+            </p>
           </a>
           <nav className="flex items-center">
             <div className="separator w-[1px] h-6 bg-[rgba(255,255,255,0.1)]" />
