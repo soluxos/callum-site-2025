@@ -20,7 +20,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="flex w-full h-[900px] relative flex-row">
           {/* Left side - Dark */}
-          <div className="flex-1 bg-[#0A0D08] flex flex-col items-end h-full p-10 md:p-15 lg:p-20">
+          <div className="flex-1 bg-[#0A0D08] flex flex-col h-full p-10 md:p-15 lg:p-20">
             <div className="max-w-[750px] mt-auto">
               <p className="text-[#626262] text-[12px] mb-4 font-departure-mono uppercase">
                 A lovely little intro
