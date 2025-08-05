@@ -22,7 +22,7 @@ export default function Home() {
           {/* Left side - Dark */}
           <div className="flex-1 bg-[#0A0D08] flex flex-col items-end h-full p-10 md:p-15 lg:p-20">
             <div className="max-w-[750px] mt-auto">
-              <p className="text-[#626262] text-[12px] mb-4 tracking-wide font-departure-mono uppercase">
+              <p className="text-[#626262] text-[12px] mb-4 font-departure-mono uppercase">
                 A lovely little intro
               </p>
               <h1 className="text-[#B1B1B1] font-medium text-4xl md:text-3xl sm:text-2xl leading-relaxed font-satoshi">
@@ -34,10 +34,10 @@ export default function Home() {
 
           <div className="lg:w-[41.75%] md:w-[41.75%] sm:w-full h-full bg-[#000] bg-[url('/images/hero-2.png')] bg-cover bg-center overflow-hidden p-10 md:p-15 lg:p-20 items-end flex">
             <div className="flex flex-col gap-1">
-              <p className="text-white text-[12px] mb-4 tracking-wide font-departure-mono uppercase">
+              <p className="text-white text-[12px] mb-4 font-departure-mono uppercase">
                 One of my happy places
               </p>
-              <p className="text-white text-[16px] mb-4 tracking-wide font-departure-mono uppercase">
+              <p className="text-white text-[16px] mb-4 font-departure-mono uppercase">
                 waterstones cafe, lewes
               </p>
             </div>
@@ -50,11 +50,11 @@ export default function Home() {
         <section className="w-full bg-[#11160E] p-10 md:p-15 lg:p-20 flex flex-col">
           <div className="w-full flex flex-col gap-10">
             {/* Title Section */}
-            <div className="gap-2 mb-12">
+            <div className="gap-1">
               <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase">
                 These are just some
               </p>
-              <h2 className="text-[#B1B1B1] text-3xl md:text-2xl sm:text-xl font-satoshi">
+              <h2 className="text-[#B1B1B1] text-3xl md:text-2xl sm:text-xl font-satoshi font-medium">
                 Recent projects
               </h2>
             </div>
@@ -63,11 +63,13 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
               {/* Project 1 - Experience builder */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg">
                   {/* Placeholder for project image */}
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-[#B1B1B1] text-lg font-satoshi">Experience builder</h3>
+                  <h3 className="text-[#B1B1B1] text-lg font-satoshi font-medium">
+                    Experience builder
+                  </h3>
                   <p className="text-[#626262] text-sm font-satoshi">
                     The low code site builder for Drupal.
                   </p>
@@ -76,11 +78,11 @@ export default function Home() {
 
               {/* Project 2 - Site Studio */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg">
                   {/* Placeholder for project image */}
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-[#B1B1B1] text-lg font-satoshi">Site Studio</h3>
+                  <h3 className="text-[#B1B1B1] text-lg font-satoshi font-medium">Site Studio</h3>
                   <p className="text-[#626262] text-sm font-satoshi">
                     A low code site builder used by the likes of Bayer Pharmaceutical.
                   </p>
@@ -89,11 +91,11 @@ export default function Home() {
 
               {/* Project 3 - Wzis.dog */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg">
                   {/* Placeholder for project image */}
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-[#B1B1B1] text-lg font-satoshi">Wzis.dog</h3>
+                  <h3 className="text-[#B1B1B1] text-lg font-satoshi font-medium">Wzis.dog</h3>
                   <p className="text-[#626262] text-sm font-satoshi">
                     The trendiest dog treat company going.
                   </p>
@@ -102,11 +104,11 @@ export default function Home() {
 
               {/* Project 4 - Union Roasted */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[440px] bg-[#191E16] rounded-lg mb-4">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg">
                   {/* Placeholder for project image */}
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-[#B1B1B1] text-lg font-satoshi">Union Roasted</h3>
+                  <h3 className="text-[#B1B1B1] text-lg font-satoshi font-medium">Union Roasted</h3>
                   <p className="text-[#626262] text-sm font-satoshi">
                     A website for one of the best coffee roasters around.
                   </p>
@@ -120,8 +122,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3">
             {/* Currently Building */}
             <div className="flex flex-col justify-between bg-[#1D211B] min-h-[600px] p-10 md:p-15 lg:p-20">
-              <div className="">
-                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+              <div className="flex flex-col gap-1">
+                <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
                   So right now I&apos;m
                 </p>
                 <h2 className="text-[#B1B1B1] text-[24px] font-satoshi font-medium">Building</h2>
@@ -132,11 +134,11 @@ export default function Home() {
                 width={746}
                 height={502}
                 className="w-full h-auto"
-                quality={100}
+                unoptimized="true"
                 priority
               />
               <div>
-                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+                <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
                   Your Next Tale
                 </p>
                 <h4 className="text-[#B1B1B1] text-lg font-satoshi">
@@ -147,8 +149,8 @@ export default function Home() {
 
             {/* Currently Reading */}
             <div className="flex flex-col justify-between bg-[#2E312C] min-h-[600px] p-10 md:p-15 lg:p-20">
-              <div className="mb-6">
-                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+              <div className="flex flex-col gap-1">
+                <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
                   If you must know I&apos;m
                 </p>
                 <h2 className="text-[#B1B1B1] text-[24px] font-satoshi font-medium">Reading</h2>
@@ -160,10 +162,11 @@ export default function Home() {
                 width={380}
                 height={409}
                 className="w-full h-auto"
+                unoptimized="true"
                 priority
               />
               <div>
-                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+                <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
                   Million Dollar Weekend
                 </p>
                 <h4 className="text-[#B1B1B1] text-lg font-satoshi">By Noah Kagan</h4>
@@ -172,8 +175,8 @@ export default function Home() {
 
             {/* Currently Watching */}
             <div className="flex flex-col justify-between bg-[#1D241A] min-h-[600px] p-10 md:p-15 lg:p-20">
-              <div className="mb-6">
-                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+              <div className="flex flex-col gap-1">
+                <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
                   This is what I&apos;m
                 </p>
                 <h2 className="text-[#B1B1B1] text-[24px] font-satoshi font-medium">Watching</h2>
@@ -185,11 +188,12 @@ export default function Home() {
                 width={407}
                 height={271}
                 className="w-full h-auto"
+                unoptimized="true"
                 priority
               />
 
               <div>
-                <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase mb-2">
+                <p className="text-[#626262] text-[12px] font-departure-mono uppercase mb-2">
                   Berserk
                 </p>
                 <h4 className="text-[#B1B1B1] text-lg font-satoshi">By Kentaro Miura</h4>
