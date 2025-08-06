@@ -14,7 +14,8 @@ export default function Home() {
     <>
       <div className="bg-[#FF2B00] min-h-6 font-departure-mono uppercase flex flex-col justify-center items-center w-full px-10 md:px-15 lg:px-20 mt-[48px] xs:mt-0">
         <p className="text-white text-[12px] font-departure-mono uppercase">
-          Work in progress, rapidly building because I want to work at Plain.com
+          Work in progress, rapidly building because I want to work at Plain.com - Check progress on{" "}
+          <Link href="https://github.com/soluxos/callum-site-2025">GitHub</Link>
         </p>
       </div>
       <div className="bg-[#0A0D08] font-satoshi flex flex-col items-center w-full">
@@ -247,8 +248,8 @@ export default function Home() {
         {/* Recent Projects Section */}
         <footer className="w-full bg-[#0A0D08] p-10 md:p-15 lg:p-20 flex flex-col">
           <div className="w-full flex flex-col gap-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-              <div className="w-full flex flex-col gap-15">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
+              <div className="w-full flex flex-col gap-15 md:col-span-1">
                 <ul className="w-full flex flex-col gap-[14px]">
                   <p className="text-white text-[12px] font-departure-mono uppercase">
                     Side proejcts
@@ -274,42 +275,34 @@ export default function Home() {
                     Work Case Studies
                   </p>
                   <Link
-                    href="https://yournexttale.com"
+                    href="/work/experience-builder"
                     className="text-[#626262] text-[14px] font-satoshi font-medium"
                   >
-                    Your Next Tale
+                    Drupal Experience Builder
                   </Link>
                   <Link
-                    href="https://nifty.lemonsqueezy.com/buy/aa932696-fbd1-4f33-8f7d-24a06a237ab0"
+                    href="/work/wzis"
                     className="text-[#626262] text-[14px] font-satoshi font-medium"
                   >
-                    Maybe Framer Template
+                    Wzis store locator
                   </Link>
-                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
-                    Nifty Framer Template
+                  <Link
+                    href="/work/acquia-site-studio"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    Acquia Site Studio
+                  </Link>
+                  <Link
+                    href="/work/union-roasted"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    Union Roasted
                   </Link>
                 </ul>
               </div>
-              {/* Column 2*/}
-              {/* <div className="w-full flex flex-col gap-5 items-end">
-                <ul className="w-full flex flex-col gap-[14px]">
-                  <p className="text-white text-[12px] font-departure-mono uppercase">
-                    Side proejcts
-                  </p>
-                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
-                    Your Next Tale
-                  </Link>
-                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
-                    Bookerino (Closed)
-                  </Link>
-                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
-                    Can you tip there?
-                  </Link>
-                </ul>
-              </div> */}
 
-              {/* Column 3*/}
-              <div className="w-full flex flex-col gap-5">
+              {/* Column 2*/}
+              <div className="w-full flex flex-col gap-5 md:col-span-1">
                 <ul className="w-full flex flex-col gap-[14px]">
                   <p className="text-white text-[12px] font-departure-mono uppercase">
                     Quick links
@@ -338,25 +331,19 @@ export default function Home() {
                 </ul>
               </div>
 
-              {/* Column 4*/}
-              <div className="w-full flex flex-col gap-5">
-                <ul className="w-full xl:w-auto flex flex-col gap-[14px] xl:text-right">
+              {/* Column 3 & 4 Combined - spans 2 columns*/}
+              <div className="w-full flex flex-col gap-5 md:col-span-2 h-full ml-auto md:items-end">
+                <ul className="w-full md:w-auto flex flex-col gap-1 md:text-right md:items-end">
                   <p className="text-white text-[20px] font-departure-mono uppercase">
                     Callum Harrod
                   </p>
-                  <Link
-                    href="https://yournexttale.com"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    Your Next Tale
-                  </Link>
-                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
-                    Bookerino (Closed)
-                  </Link>
-                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
-                    Can you tip there?
-                  </Link>
+                  <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
+                    Designing & Developing
+                  </p>
                 </ul>
+                <p className="text-[#626262] text-[12px] font-departure-mono uppercase mt-auto">
+                  © 2025 Callum Harrod
+                </p>
               </div>
             </div>
           </div>
