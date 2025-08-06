@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ImageGrid from "@/components/ImageGrid/SimpleImageGrid";
+import Link from "next/link";
 
 export default function Home() {
   // Example usage
@@ -63,7 +64,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
               {/* Project 1 - Experience builder */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[440px] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/experience-builder.svg"
                     alt="Experience Builder"
@@ -88,7 +89,7 @@ export default function Home() {
 
               {/* Project 3 - Wzis.dog */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[440px] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/wzis.png"
                     alt="Experience Builder"
@@ -111,7 +112,7 @@ export default function Home() {
 
               {/* Project 2 - Site Studio */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[440px] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/site-studio.png"
                     alt="Experience Builder"
@@ -134,7 +135,7 @@ export default function Home() {
 
               {/* Project 4 - Union Roasted */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[440px] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/union.png"
                     alt="Experience Builder"
@@ -157,6 +158,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         {/* Currently Reading Section */}
         <section className="bg-[linear-gradient(to_right,#1D211B_0%,#1D211B_50%,#1D241A_50%,#1D241A_100%)] w-full">
           <div className="grid grid-cols-1 md:grid-cols-3">
@@ -241,6 +243,124 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Recent Projects Section */}
+        <footer className="w-full bg-[#0A0D08] p-10 md:p-15 lg:p-20 flex flex-col">
+          <div className="w-full flex flex-col gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+              <div className="w-full flex flex-col gap-15">
+                <ul className="w-full flex flex-col gap-[14px]">
+                  <p className="text-white text-[12px] font-departure-mono uppercase">
+                    Side proejcts
+                  </p>
+                  <Link
+                    href="https://yournexttale.com"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    Your Next Tale
+                  </Link>
+                  <Link
+                    href="https://nifty.lemonsqueezy.com/buy/aa932696-fbd1-4f33-8f7d-24a06a237ab0"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    Maybe Framer Template
+                  </Link>
+                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
+                    Nifty Framer Template
+                  </Link>
+                </ul>
+                <ul className="w-full flex flex-col gap-[14px]">
+                  <p className="text-white text-[12px] font-departure-mono uppercase">
+                    Work Case Studies
+                  </p>
+                  <Link
+                    href="https://yournexttale.com"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    Your Next Tale
+                  </Link>
+                  <Link
+                    href="https://nifty.lemonsqueezy.com/buy/aa932696-fbd1-4f33-8f7d-24a06a237ab0"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    Maybe Framer Template
+                  </Link>
+                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
+                    Nifty Framer Template
+                  </Link>
+                </ul>
+              </div>
+              {/* Column 2*/}
+              {/* <div className="w-full flex flex-col gap-5 items-end">
+                <ul className="w-full flex flex-col gap-[14px]">
+                  <p className="text-white text-[12px] font-departure-mono uppercase">
+                    Side proejcts
+                  </p>
+                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
+                    Your Next Tale
+                  </Link>
+                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
+                    Bookerino (Closed)
+                  </Link>
+                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
+                    Can you tip there?
+                  </Link>
+                </ul>
+              </div> */}
+
+              {/* Column 3*/}
+              <div className="w-full flex flex-col gap-5">
+                <ul className="w-full flex flex-col gap-[14px]">
+                  <p className="text-white text-[12px] font-departure-mono uppercase">
+                    Quick links
+                  </p>
+                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
+                    Home
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    About
+                  </Link>
+                  <Link
+                    href="/work"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    Work
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    Contact
+                  </Link>
+                </ul>
+              </div>
+
+              {/* Column 4*/}
+              <div className="w-full flex flex-col gap-5">
+                <ul className="w-full xl:w-auto flex flex-col gap-[14px] xl:text-right">
+                  <p className="text-white text-[20px] font-departure-mono uppercase">
+                    Callum Harrod
+                  </p>
+                  <Link
+                    href="https://yournexttale.com"
+                    className="text-[#626262] text-[14px] font-satoshi font-medium"
+                  >
+                    Your Next Tale
+                  </Link>
+                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
+                    Bookerino (Closed)
+                  </Link>
+                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
+                    Can you tip there?
+                  </Link>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );
