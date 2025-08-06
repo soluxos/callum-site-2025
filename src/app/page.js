@@ -15,7 +15,9 @@ export default function Home() {
       <div className="bg-[#FF2B00] min-h-6 font-departure-mono uppercase flex flex-col justify-center items-center w-full px-10 md:px-15 lg:px-20 mt-[48px] xs:mt-0">
         <p className="text-white text-[12px] font-departure-mono uppercase">
           Work in progress, rapidly building because I want to work at Plain.com - Check progress on{" "}
-          <Link href="https://github.com/soluxos/callum-site-2025">GitHub</Link>
+          <Link href="https://github.com/soluxos/callum-site-2025" className="underline">
+            GitHub
+          </Link>
         </p>
       </div>
       <div className="bg-[#0A0D08] font-satoshi flex flex-col items-center w-full">
