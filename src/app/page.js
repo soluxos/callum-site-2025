@@ -26,7 +26,7 @@ export default function Home() {
           {/* Left side - Dark */}
           <div className="flex-1 bg-[#0A0D08] flex flex-col h-full p-10 md:p-15 lg:p-20">
             <div className="max-w-[750px] mt-auto">
-              <p className="text-[#626262] text-[12px] mb-4 font-departure-mono uppercase">
+              <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
                 A lovely little intro
               </p>
               <h1 className="text-[#B1B1B1] font-medium text-4xl md:text-3xl sm:text-2xl leading-relaxed font-satoshi">
@@ -38,10 +38,10 @@ export default function Home() {
 
           <div className="lg:w-[41.75%] md:w-[41.75%] sm:w-full h-full bg-[#000] bg-[url('/images/hero-2.png')] bg-cover bg-center overflow-hidden p-10 md:p-15 lg:p-20 items-end flex">
             <div className="flex flex-col gap-1">
-              <p className="text-white text-[12px] mb-4 font-departure-mono uppercase">
+              <p className="text-white text-[12px] font-departure-mono uppercase">
                 One of my happy places
               </p>
-              <p className="text-white text-[16px] mb-4 font-departure-mono uppercase">
+              <p className="text-white text-[16px] font-departure-mono uppercase">
                 waterstones cafe, lewes
               </p>
             </div>
@@ -246,110 +246,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Recent Projects Section */}
-        <footer className="w-full bg-[#0A0D08] p-10 md:p-15 lg:p-20 flex flex-col">
-          <div className="w-full flex flex-col gap-10">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
-              <div className="w-full flex flex-col gap-15 md:col-span-1">
-                <ul className="w-full flex flex-col gap-[14px]">
-                  <p className="text-white text-[12px] font-departure-mono uppercase">
-                    Side proejcts
-                  </p>
-                  <Link
-                    href="https://yournexttale.com"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    Your Next Tale
-                  </Link>
-                  <Link
-                    href="https://nifty.lemonsqueezy.com/buy/aa932696-fbd1-4f33-8f7d-24a06a237ab0"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    Maybe Framer Template
-                  </Link>
-                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
-                    Nifty Framer Template
-                  </Link>
-                </ul>
-                <ul className="w-full flex flex-col gap-[14px]">
-                  <p className="text-white text-[12px] font-departure-mono uppercase">
-                    Work Case Studies
-                  </p>
-                  <Link
-                    href="/work/experience-builder"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    Drupal Experience Builder
-                  </Link>
-                  <Link
-                    href="/work/wzis"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    Wzis store locator
-                  </Link>
-                  <Link
-                    href="/work/acquia-site-studio"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    Acquia Site Studio
-                  </Link>
-                  <Link
-                    href="/work/union-roasted"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    Union Roasted
-                  </Link>
-                </ul>
-              </div>
-
-              {/* Column 2*/}
-              <div className="w-full flex flex-col gap-5 md:col-span-1">
-                <ul className="w-full flex flex-col gap-[14px]">
-                  <p className="text-white text-[12px] font-departure-mono uppercase">
-                    Quick links
-                  </p>
-                  <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
-                    Home
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    About
-                  </Link>
-                  <Link
-                    href="/work"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    Work
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="text-[#626262] text-[14px] font-satoshi font-medium"
-                  >
-                    Contact
-                  </Link>
-                </ul>
-              </div>
-
-              {/* Column 3 & 4 Combined - spans 2 columns*/}
-              <div className="w-full flex flex-col gap-5 md:col-span-2 h-full ml-auto md:items-end">
-                <ul className="w-full md:w-auto flex flex-col gap-1 md:text-right md:items-end">
-                  <p className="text-white text-[20px] font-departure-mono uppercase">
-                    Callum Harrod
-                  </p>
-                  <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
-                    Designing & Developing
-                  </p>
-                </ul>
-                <p className="text-[#626262] text-[12px] font-departure-mono uppercase mt-auto">
-                  © 2025 Callum Harrod
-                </p>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </>
   );

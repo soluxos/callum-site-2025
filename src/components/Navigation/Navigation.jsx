@@ -37,7 +37,7 @@ export default function Navigation() {
             </a>
             <div className="separator w-[1px] h-6 bg-[rgba(255,255,255,0.1)]" />
             <a
-              href="/"
+              href="/about"
               className="about flex flex-col items-start relative cursor-pointer px-4 py-[10px]"
             >
               <p className="font-departure-mono uppercase text-[10px] text-[#8D8D8D]">All</p>
@@ -47,16 +47,16 @@ export default function Navigation() {
             </a>
             <div className="separator w-[1px] h-6 bg-[rgba(255,255,255,0.1)]" />
             <a
-              href="/"
+              href="/work"
               className="about flex flex-col items-start relative cursor-pointer px-4 py-[10px]"
             >
-              <p className="font-departure-mono uppercase text-[10px] text-[#8D8D8D]">All</p>
+              <p className="font-departure-mono uppercase text-[10px] text-[#8D8D8D]">View my</p>
               <p className="font-departure-mono uppercase text-[12px] flex gap-1">
                 <span className="text-[#5E00FF]">♣</span> Work
               </p>
             </a>
             <div className="separator w-[1px] h-6 bg-[rgba(255,255,255,0.1)]" />
-            <a href="/" className="flex flex-col items-start px-4 py-[10px]">
+            <a href="/contact" className="flex flex-col items-start px-4 py-[10px]">
               <p className="font-departure-mono uppercase text-[10px] text-[#8D8D8D]">Get In</p>
               <p className="font-departure-mono uppercase text-[12px] flex gap-1">
                 <span className="text-[#008CFF]">♥</span> Contact
