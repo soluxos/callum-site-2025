@@ -63,10 +63,20 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
               {/* Project 1 - Experience builder */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg">
-                  {/* Placeholder for project image */}
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/projects/experience-builder.svg"
+                    alt="Experience Builder"
+                    width={120}
+                    height={120}
+                    unoptimized="true"
+                    priority
+                  />
                 </div>
                 <div className="flex flex-col gap-1">
+                  <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase">
+                    Link coming soon...
+                  </p>
                   <h3 className="text-[#B1B1B1] text-lg font-satoshi font-medium">
                     Experience builder
                   </h3>
@@ -76,25 +86,22 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Project 2 - Site Studio */}
-              <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg">
-                  {/* Placeholder for project image */}
-                </div>
-                <div className="flex flex-col gap-1">
-                  <h3 className="text-[#B1B1B1] text-lg font-satoshi font-medium">Site Studio</h3>
-                  <p className="text-[#626262] text-sm font-satoshi">
-                    A low code site builder used by the likes of Bayer Pharmaceutical.
-                  </p>
-                </div>
-              </div>
-
               {/* Project 3 - Wzis.dog */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg">
-                  {/* Placeholder for project image */}
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/projects/wzis.png"
+                    alt="Experience Builder"
+                    width={120}
+                    height={120}
+                    unoptimized="true"
+                    priority
+                  />
                 </div>
                 <div className="flex flex-col gap-1">
+                  <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase">
+                    Link coming soon...
+                  </p>
                   <h3 className="text-[#B1B1B1] text-lg font-satoshi font-medium">Wzis.dog</h3>
                   <p className="text-[#626262] text-sm font-satoshi">
                     The trendiest dog treat company going.
@@ -102,12 +109,45 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Project 4 - Union Roasted */}
+              {/* Project 2 - Site Studio */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg">
-                  {/* Placeholder for project image */}
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/projects/site-studio.png"
+                    alt="Experience Builder"
+                    width={120}
+                    height={120}
+                    unoptimized="true"
+                    priority
+                  />
                 </div>
                 <div className="flex flex-col gap-1">
+                  <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase">
+                    Link coming soon...
+                  </p>
+                  <h3 className="text-[#B1B1B1] text-lg font-satoshi font-medium">Site Studio</h3>
+                  <p className="text-[#626262] text-sm font-satoshi">
+                    A low code site builder used by the likes of Bayer Pharmaceutical.
+                  </p>
+                </div>
+              </div>
+
+              {/* Project 4 - Union Roasted */}
+              <div className="w-full flex flex-col gap-5">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[400px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/projects/union.png"
+                    alt="Experience Builder"
+                    width={120}
+                    height={120}
+                    unoptimized="true"
+                    priority
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <p className="text-[#626262] text-[12px] tracking-wide font-departure-mono uppercase">
+                    Link coming soon...
+                  </p>
                   <h3 className="text-[#B1B1B1] text-lg font-satoshi font-medium">Union Roasted</h3>
                   <p className="text-[#626262] text-sm font-satoshi">
                     A website for one of the best coffee roasters around.
