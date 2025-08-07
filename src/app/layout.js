@@ -26,7 +26,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://callumharrod.com/social-thumb.png", // Absolute URL for the social share image
+        url: "https://callumharrod.com/images/social-thumb.png", // Absolute URL for the social share image
         width: 1200,
         height: 630,
         alt: "Callum Harrod - Personal Site",
@@ -37,7 +37,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Callum Harrod - Personal Site",
     description: "My little nook on the internet. I also make things.",
-    images: ["https://callumharrod.com/social-thumb.png"], // Absolute URL for the social share image
+    images: ["https://callumharrod.com/images/social-thumb.png"], // Absolute URL for the social share image
   },
   icons: {
     icon: "/favicon.svg", // Path to your favicon
