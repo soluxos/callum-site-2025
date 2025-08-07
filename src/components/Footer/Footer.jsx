@@ -4,10 +4,11 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      <footer className="w-full bg-[#0A0D08] p-10 md:p-15 lg:p-20 flex flex-col">
+      <footer className="w-full bg-[#0A0D08] py-10 md:py-15 lg:py-20 flex flex-col">
         <div className="w-full flex flex-col gap-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
-            <div className="w-full flex flex-col gap-15 md:col-span-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-15 md:gap-0">
+            {/* Column 1 */}
+            <div className="w-full flex flex-col gap-15 px-10 md:px-15 lg:px-20">
               <ul className="w-full flex flex-col gap-[14px]">
                 <p className="text-white text-[12px] font-departure-mono uppercase">
                   Side proejcts
@@ -60,7 +61,7 @@ export default function Footer() {
             </div>
 
             {/* Column 2*/}
-            <div className="w-full flex flex-col gap-5 md:col-span-1">
+            <div className="w-full flex flex-col gap-15 px-10 md:px-15 lg:px-20">
               <ul className="w-full flex flex-col gap-[14px]">
                 <p className="text-white text-[12px] font-departure-mono uppercase">Quick links</p>
                 <Link href="/" className="text-[#626262] text-[14px] font-satoshi font-medium">
@@ -82,7 +83,7 @@ export default function Footer() {
             </div>
 
             {/* Column 3 & 4 Combined - spans 2 columns*/}
-            <div className="w-full flex flex-col gap-5 md:col-span-2 h-full ml-auto md:items-end">
+            <div className="w-full flex flex-col gap-5  h-full ml-auto md:items-end px-10 md:px-15 lg:px-20">
               <ul className="w-full md:w-auto flex flex-col gap-1 md:text-right md:items-end">
                 <p className="text-white text-[20px] font-departure-mono uppercase">
                   Callum Harrod

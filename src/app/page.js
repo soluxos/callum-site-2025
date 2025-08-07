@@ -12,17 +12,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="bg-[#FF2B00] min-h-6 font-departure-mono uppercase flex flex-col justify-center items-center w-full px-10 md:px-15 lg:px-20 mt-[48px] xs:mt-0">
-        <p className="text-white text-[12px] font-departure-mono uppercase">
-          Work in progress, rapidly building because I want to work at Plain.com - Check progress on{" "}
-          <Link href="https://github.com/soluxos/callum-site-2025" className="underline">
-            GitHub
-          </Link>
-        </p>
-      </div>
       <div className="bg-[#0A0D08] font-satoshi flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section className="flex w-full h-[900px] relative flex-row">
+        <section className="flex w-full h-[900px] relative flex-col md:flex-row">
           {/* Left side - Dark */}
           <div className="flex-1 bg-[#0A0D08] flex flex-col h-full p-10 md:p-15 lg:p-20">
             <div className="max-w-[750px] mt-auto">
@@ -36,7 +28,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:w-[41.75%] md:w-[41.75%] sm:w-full h-full bg-[#000] bg-[url('/images/hero-2.png')] bg-cover bg-center overflow-hidden p-10 md:p-15 lg:p-20 items-end flex">
+          <div className="lg:w-[41.75%] md:w-[41.75%] w-full h-[400px] md:h-full bg-[#000] bg-[url('/images/hero-2.png')] bg-cover bg-center overflow-hidden p-10 md:p-15 lg:p-20 items-end flex">
             <div className="flex flex-col gap-1">
               <p className="text-white text-[12px] font-departure-mono uppercase">
                 One of my happy places
@@ -47,6 +39,15 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <div className="bg-[#FF2B00] min-h-6 py-1 font-departure-mono uppercase flex flex-col justify-center items-center w-full px-10 md:px-15 lg:px-20">
+          <p className="text-white text-[12px] font-departure-mono uppercase text-center">
+            Work in progress, rapidly building because I want to work at Plain.com - Check progress
+            on{" "}
+            <Link href="https://github.com/soluxos/callum-site-2025" className="underline">
+              GitHub
+            </Link>
+          </p>
+        </div>
 
         {/* <ImageGrid images={imageArray} className="w-64 h-64" /> */}
 
@@ -67,7 +68,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
               {/* Project 1 - Experience builder */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[440px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/experience-builder.svg"
                     alt="Experience Builder"
@@ -92,7 +93,7 @@ export default function Home() {
 
               {/* Project 3 - Wzis.dog */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[440px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/wzis.png"
                     alt="Experience Builder"
@@ -115,7 +116,7 @@ export default function Home() {
 
               {/* Project 2 - Site Studio */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[440px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/site-studio.png"
                     alt="Experience Builder"
@@ -138,7 +139,7 @@ export default function Home() {
 
               {/* Project 4 - Union Roasted */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[440px] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/union.png"
                     alt="Experience Builder"
@@ -182,7 +183,7 @@ export default function Home() {
                 unoptimized="true"
                 priority
               />
-              <div>
+              <div className="flex flex-col gap-1">
                 <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
                   Your Next Tale
                 </p>
@@ -210,7 +211,7 @@ export default function Home() {
                 unoptimized="true"
                 priority
               />
-              <div>
+              <div className="flex flex-col gap-1">
                 <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
                   Million Dollar Weekend
                 </p>
@@ -237,10 +238,8 @@ export default function Home() {
                 priority
               />
 
-              <div>
-                <p className="text-[#626262] text-[12px] font-departure-mono uppercase mb-2">
-                  Berserk
-                </p>
+              <div className="flex flex-col gap-1">
+                <p className="text-[#626262] text-[12px] font-departure-mono uppercase">Berserk</p>
                 <h4 className="text-[#B1B1B1] text-lg font-satoshi">By Kentaro Miura</h4>
               </div>
             </div>
