@@ -17,7 +17,7 @@ export default function Navigation() {
             bounce: 0.5,
             duration: 0.8,
           }}
-          className="bg-[rgba(255,255,255,0.08)] backdrop-blur-sm h-12 xs:rounded-[8px] flex items-center gap-4 w-[100vw] xs:w-auto relative max-w-full xs:max-w-[calc(100vw-80px)] justify-center xs:justify-start"
+          className="bg-[rgba(255,255,255,0.08)] backdrop-blur-sm h-12 xs:rounded-[8px] flex items-center gap-4 w-[100vw] xs:w-auto relative max-w-full justify-center xs:justify-start"
         >
           <a href="/" className="flex flex-col items-start pl-5">
             <p className="font-departure-mono uppercase text-[#8D8D8D] text-[10px] whitespace-nowrap">
@@ -27,7 +27,7 @@ export default function Navigation() {
               Callum <span className="hidden sm:inline">Harrod</span>
             </p>
           </a>
-          <nav className="flex items-center">
+          <nav className="flex items-center max-w-full">
             <div className="separator w-[1px] h-6 bg-[rgba(255,255,255,0.1)]" />
             <a href="/" className="flex flex-col items-start px-4 py-[10px]">
               <p className="font-departure-mono uppercase text-[10px] text-[#8D8D8D]">Head</p>

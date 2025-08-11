@@ -16,12 +16,12 @@ export default function Home() {
         {/* Hero Section */}
         <section className="flex w-full h-[900px] relative flex-col md:flex-row">
           {/* Left side - Dark */}
-          <div className="flex-1 bg-[#0A0D08] flex flex-col h-full p-10 md:p-15 lg:p-20">
+          <div className="flex-1 bg-[#0A0D08] flex flex-col h-full p-10 md:p-15 lg:p-20 min-h-[480px]">
             <div className="max-w-[750px] mt-auto">
               <p className="text-[#626262] text-[12px] font-departure-mono uppercase">
                 A lovely little intro
               </p>
-              <h1 className="text-[#B1B1B1] font-medium text-4xl md:text-3xl sm:text-2xl leading-relaxed font-satoshi">
+              <h1 className="text-[#B1B1B1] font-medium text-[32px] leading-relaxed font-satoshi">
                 Hey, I’m Callum. I’m a designer & developer based in the south-east of the UK. I
                 currently work at Acquia as a Senior Product Designer.
               </h1>

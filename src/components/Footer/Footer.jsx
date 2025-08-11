@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import WipBanner from "@/components/WipBanner/WipBanner";
 
 export default function Footer() {
   return (
@@ -99,6 +100,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
+      <WipBanner />
     </>
   );
 }
