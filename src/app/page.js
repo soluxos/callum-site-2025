@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ImageGrid from "@/components/ImageGrid/SimpleImageGrid";
 import Link from "next/link";
+import WipBanner from "@/components/WipBanner/WipBanner";
 
 export default function Home() {
   // Example usage
@@ -39,15 +40,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <div className="bg-[#FF2B00] min-h-6 py-1 font-departure-mono uppercase flex flex-col justify-center items-center w-full px-10 md:px-15 lg:px-20">
-          <p className="text-white text-[12px] font-departure-mono uppercase text-center">
-            Work in progress, rapidly building because I want to work at Plain.com - Check progress
-            on{" "}
-            <Link href="https://github.com/soluxos/callum-site-2025" className="underline">
-              GitHub
-            </Link>
-          </p>
-        </div>
+        <WipBanner />
 
         {/* <ImageGrid images={imageArray} className="w-64 h-64" /> */}
 
@@ -68,7 +61,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
               {/* Project 1 - Experience builder */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-[40vh] md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/experience-builder.svg"
                     alt="Experience Builder"
@@ -93,7 +86,7 @@ export default function Home() {
 
               {/* Project 3 - Wzis.dog */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-[40vh] md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/wzis.png"
                     alt="Experience Builder"
@@ -116,7 +109,7 @@ export default function Home() {
 
               {/* Project 2 - Site Studio */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-[40vh] md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/site-studio.png"
                     alt="Experience Builder"
@@ -139,7 +132,7 @@ export default function Home() {
 
               {/* Project 4 - Union Roasted */}
               <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-90 md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
+                <div className="w-full h-[40vh] md:h-96 lg:h-[400px] xl:h-[40vh] bg-[#191E16] rounded-lg flex items-center justify-center">
                   <Image
                     src="/images/projects/union.png"
                     alt="Experience Builder"
