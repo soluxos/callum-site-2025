@@ -9,7 +9,9 @@ import EditModeProvider from "@/contexts/EditModeContext";
 
 // app/layout.js
 import Script from "next/script";
-import Footer from "@/components/Footer/Footer";
+import SiteShell from "@/components/SiteShell/SiteShell";
+import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import WipBanner from "@/components/WipBanner/WipBanner";
 
 const geistSans = Geist({
@@ -54,25 +56,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="relative overflow-clip bg-[#f5f5f5] font-satoshi text-[#484848]">
+        <SiteShell>
           <EditModeProvider>
             <DraggableCanvas>
               <div id="page-content">
                 {/* <div aria-hidden="true" className="noise-overlay" /> */}
                 {/* <DitherOverlay opacity="0.6" /> */}
                 {/* <WipBanner /> */}
-                <div className="flex w-full max-w-[1440px] flex-col pb-20 sm:pb-[160px] mx-auto relative z-10">
-                  <div className="mx-5 sm:mx-10 gap-30 sm:gap-[240px] flex flex-col pt-8">
-                    <Navigation />
-                    <PageTransition>{children}</PageTransition>
-                    <Footer />
-                  </div>
-                </div>
+                <PageWrapper>
+                  <Navigation />
+                  <PageTransition>{children}</PageTransition>
+                  <ConditionalFooter />
+                </PageWrapper>
               </div>
               <LivePresence />
             </DraggableCanvas>
           </EditModeProvider>
-        </div>
+        </SiteShell>
       </body>
       <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
     </html>

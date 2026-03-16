@@ -8,7 +8,10 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="relative flex w-full max-w-[1360px] min-w-0 items-center justify-between gap-20">
+    <header
+      className="relative flex w-full max-w-[1360px] min-w-0 items-center justify-between gap-20"
+      style={{ zIndex: 200, position: "relative" }}
+    >
       <Link href="/" className="flex items-center gap-3">
         <span className="text-[20px] font-ppmondwest font-medium leading-[1.25] text-[#484848]">
           Callum Harrod
@@ -23,6 +26,9 @@ export default function Navigation() {
         </Link>
         <Link href="/case-studies" className="text-[14px] text-[#929292] hover:text-[#484848]">
           Case studies
+        </Link>
+        <Link href="/ideas" className="text-[14px] text-[#929292] hover:text-[#484848]">
+          Ideas
         </Link>
       </nav>
       <button
@@ -60,6 +66,13 @@ export default function Navigation() {
               className="text-[14px] text-[#929292] hover:text-[#484848]"
             >
               Case studies
+            </Link>
+            <Link
+              onClick={() => setIsOpen(false)}
+              href="/ideas"
+              className="text-[14px] text-[#929292] hover:text-[#484848]"
+            >
+              Ideas
             </Link>
           </div>
         </div>

@@ -5,11 +5,13 @@ import { createPortal } from "react-dom";
 import { AnimatePresence } from "motion/react";
 import { usePathname } from "next/navigation";
 import supabase from "@/lib/supabase";
+import { canvasPanX, canvasPanY, canvasZoom } from "@/lib/ideasTransform";
 
 import { PALETTE, randomItem, randomName } from "./utils";
 import AvatarPill from "./AvatarPill";
 import FakeCursor from "./FakeCursor";
 import RealCursor from "./RealCursor";
+import IdeasCursor from "./IdeasCursor";
 import OwnMessageBubble from "./OwnMessageBubble";
 import MyMessageComposer from "./MyMessageComposer";
 
@@ -154,14 +156,19 @@ export default function LivePresence() {
         }
       })
       .on("broadcast", { event: "cursor" }, ({ payload }) => {
-        const { id, x, y } = payload ?? {};
+        const { id, x, y, cx, cy } = payload ?? {};
         if (id && id !== myId) {
+          // cx/cy are canvas-space coords (sent on /ideas).
+          // x/y are viewport-normalised coords (sent on other pages).
+          const isCanvasSpace = cx !== undefined && cy !== undefined;
           setCursorMap(prev => ({
             ...prev,
-            [id]: {
-              x: x * document.documentElement.scrollWidth,
-              y: y * document.documentElement.scrollHeight,
-            },
+            [id]: isCanvasSpace
+              ? { x: cx, y: cy, canvasSpace: true }
+              : {
+                  x: x * document.documentElement.scrollWidth,
+                  y: y * document.documentElement.scrollHeight,
+                },
           }));
           clearTimeout(inactivityTimersRef.current[id]);
           setInactiveIds(prev => {
@@ -179,17 +186,29 @@ export default function LivePresence() {
       })
       .on("broadcast", { event: "req-positions" }, () => {
         const { x: cx, y: cy } = lastClientRef.current;
-        const absX = cx + window.scrollX;
-        const absY = cy + window.scrollY;
-        channel.send({
-          type: "broadcast",
-          event: "cursor",
-          payload: {
-            id: myId,
-            x: absX / document.documentElement.scrollWidth,
-            y: absY / document.documentElement.scrollHeight,
-          },
-        });
+        if (pathname.startsWith("/ideas")) {
+          channel.send({
+            type: "broadcast",
+            event: "cursor",
+            payload: {
+              id: myId,
+              cx: (cx - canvasPanX.get()) / canvasZoom.get(),
+              cy: (cy - canvasPanY.get()) / canvasZoom.get(),
+            },
+          });
+        } else {
+          const absX = cx + window.scrollX;
+          const absY = cy + window.scrollY;
+          channel.send({
+            type: "broadcast",
+            event: "cursor",
+            payload: {
+              id: myId,
+              x: absX / document.documentElement.scrollWidth,
+              y: absY / document.documentElement.scrollHeight,
+            },
+          });
+        }
       })
       .on("broadcast", { event: "message" }, ({ payload }) => {
         const { id, text, composing } = payload ?? {};
@@ -271,17 +290,28 @@ export default function LivePresence() {
       const now = Date.now();
       if (now - lastBroadcastRef.current < 16) return;
       lastBroadcastRef.current = now;
-      const absX = clientX + window.scrollX;
-      const absY = clientY + window.scrollY;
-      channelRef.current?.send({
-        type: "broadcast",
-        event: "cursor",
-        payload: {
+      let payload;
+      if (pathname.startsWith("/ideas")) {
+        // Broadcast in canvas-space so remote users see the cursor relative to
+        // canvas content, not the viewport.
+        payload = {
+          id: myId,
+          cx: (clientX - canvasPanX.get()) / canvasZoom.get(),
+          cy: (clientY - canvasPanY.get()) / canvasZoom.get(),
+        };
+      } else {
+        const absX = clientX + window.scrollX;
+        const absY = clientY + window.scrollY;
+        payload = {
           id: myId,
           x: absX / document.documentElement.scrollWidth,
           y: absY / document.documentElement.scrollHeight,
-        },
-      });
+        };
+      }
+      channelRef.current?.send({ type: "broadcast", event: "cursor", payload });
+      // Presence tracking always uses viewport-normalised coords
+      const normX = (clientX + window.scrollX) / document.documentElement.scrollWidth;
+      const normY = (clientY + window.scrollY) / document.documentElement.scrollHeight;
       clearTimeout(selfInactivityTimerRef.current);
       if (meInactiveRef.current) {
         meInactiveRef.current = false;
@@ -290,8 +320,8 @@ export default function LivePresence() {
           color: meColorRef.current,
           lastActive: now,
           inactive: false,
-          x: absX / document.documentElement.scrollWidth,
-          y: absY / document.documentElement.scrollHeight,
+          x: normX,
+          y: normY,
         });
         lastPresenceUpdateRef.current = now;
       }
@@ -311,8 +341,8 @@ export default function LivePresence() {
           color: meColorRef.current,
           lastActive: now,
           inactive: false,
-          x: absX / document.documentElement.scrollWidth,
-          y: absY / document.documentElement.scrollHeight,
+          x: normX,
+          y: normY,
         });
       }
     };
@@ -612,9 +642,13 @@ export default function LivePresence() {
             <AnimatePresence>
               {activeRealUsers
                 .filter(user => cursorMap[user.id] !== undefined)
-                .map(user => (
-                  <RealCursor key={`real-${user.id}`} user={user} />
-                ))}
+                .map(user =>
+                  cursorMap[user.id]?.canvasSpace ? (
+                    <IdeasCursor key={`real-${user.id}`} user={user} />
+                  ) : (
+                    <RealCursor key={`real-${user.id}`} user={user} />
+                  )
+                )}
             </AnimatePresence>
             <AnimatePresence>
               {myMessage && meColor && (
@@ -628,7 +662,8 @@ export default function LivePresence() {
               )}
             </AnimatePresence>
           </>,
-          document.body
+          (pathname.startsWith("/ideas") && document.getElementById("ideas-cursor-layer")) ||
+            document.body
         )}
 
       {composing && mounted && (

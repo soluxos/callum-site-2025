@@ -295,6 +295,7 @@ export default function AvatarPill({ allUsers, channelStatus }) {
                 borderLeft: "5px solid transparent",
                 borderRight: "5px solid transparent",
                 borderBottom: "5px solid #888",
+                zIndex: 100,
               }}
             />
             Use / to chat
