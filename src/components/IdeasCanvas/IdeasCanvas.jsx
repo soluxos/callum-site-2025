@@ -467,8 +467,11 @@ export default function IdeasCanvas({ notes: initialNotes, isDev }) {
   return (
     <>
       {/* Canvas — position:fixed so it fills the full viewport */}
-      <div
+      <motion.div
         ref={canvasRef}
+        initial={{ opacity: 0, scale: 0.97 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
         style={{
           position: "fixed",
           inset: 0,
@@ -517,7 +520,7 @@ export default function IdeasCanvas({ notes: initialNotes, isDev }) {
             style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 9000 }}
           />
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Toolbar — visible to all; API calls (persistence) are dev-only */}
       {

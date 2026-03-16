@@ -13,14 +13,16 @@ export default function Home() {
   return (
     <>
       <main className="flex flex-col gap-[80px]">
-        <section className="flex w-full flex-col gap-5">
-          <h1 className="w-full max-w-[591px] font-ppmondwest text-[48px] leading-[1.25]">
-            Case studies
-          </h1>
-          <p className="w-full max-w-[591px] text-[14px] font-medium leading-[1.5] text-[#929292]">
-            A short selection of some projects I've worked on...
-          </p>
-        </section>
+        <FadeInUp>
+          <section className="flex w-full flex-col gap-5">
+            <h1 className="w-full max-w-[591px] font-ppmondwest text-[48px] leading-[1.25]">
+              Case studies
+            </h1>
+            <p className="w-full max-w-[591px] text-[14px] font-medium leading-[1.5] text-[#929292]">
+              A short selection of some projects I've worked on...
+            </p>
+          </section>
+        </FadeInUp>
 
         <FadeInUp delay={0.1}>
           <section className="flex flex-col gap-4">
