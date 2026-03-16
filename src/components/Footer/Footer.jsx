@@ -75,12 +75,12 @@ export default function Footer() {
         </div>
         <div className="flex flex-col md:items-end gap-5">
           <Link href="/" className="flex md:items-end gap-2">
-            <span className="text-[16px] md:text-right font-medium leading-[1.25]">
+            <span className="text-[20px] font-ppmondwest font-medium leading-[1.25] text-[#484848]">
               Callum Harrod
             </span>
           </Link>
           <span className="text-[14px] md:text-right font-medium leading-none text-[#929292]">
-            © 2025 Callum Harrod
+            © {new Date().getFullYear()} Callum Harrod
           </span>
         </div>
       </div>
