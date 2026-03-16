@@ -31,6 +31,7 @@ export default function DrupalCanvasCaseStudy() {
     "The problem",
     "My involvement",
     "Crafting a design system",
+    "Structuring the shell",
     "Creating new features",
     "What I've done",
     "End notes",
@@ -234,8 +235,8 @@ export default function DrupalCanvasCaseStudy() {
             </p>
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
               This is how I was offered the job of Senior Product at Acquia. I was making strides on
-              the design system, and bringing order to what were some pretty chaotic design files.
-              From here I organised everything into a clear atomic design system.
+              the design system, and created the design files that every developer would want to
+              work from. From here I organised everything into a clear atomic design system.
             </p>
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
               While organising I improved on the UI of each of our components. Due to the deep
@@ -245,7 +246,7 @@ export default function DrupalCanvasCaseStudy() {
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
               Since then I have redesigned the entire UI, worked with developers closely on the
               interaction design, designed multiple new features that required turning very complex
-              workflows into simple processes, helping new designers work on new features by guiding
+              workflows into simple processes, helping designers work on new features by guiding
               them through complex engineering requirements, and a lot more.
             </p>
           </CaseStudySection>
@@ -279,6 +280,47 @@ export default function DrupalCanvasCaseStudy() {
                 imageAlt="Description"
               >
                 Every component organised into groups and documented
+              </CaseStudyCard>
+            </CaseStudyCards>
+          </CaseStudySection>
+        </FadeInUp>
+
+        <FadeInUp>
+          <CaseStudySection title="Structuring the shell">
+            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+              One of the largest challenges of this project was structuring the shell of the
+              product. We needed to fine-tune a system, that would not only serve as a site building
+              and editing interface for our core product, but one that would be future-proof.
+            </p>
+            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+              The shell was created to take up as little space as possible, while still being able
+              to expand to show more options based on the task that a user might take. If they
+              wanted to add new items, or edit their existing page, the items become contextual to
+              the area of the UI that you're in.
+            </p>
+            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+              One of the largest challenges was creating all of this that would work today, but
+              ensure that it would facilitate new features that would be added in the future. This
+              meant solving problems that we didn't necessarily have yet.
+            </p>
+            <CaseStudyCards>
+              <CaseStudyCard
+                width="half"
+                image="/images/case-studies/drupal-canvas/case-study-consistent-experience.png"
+                imageAlt="Description"
+              >
+                Each panel has been designed with a consistent experience. It never navigates the
+                user away at a top level, it always acts as a navigation device, and only navigates
+                once you’ve selected a context.
+              </CaseStudyCard>
+              <CaseStudyCard
+                width="half"
+                image="/images/case-studies/drupal-canvas/case-study-top-bar.png"
+                imageAlt="Description"
+              >
+                The top bar has been designed for multiple different functions. We have a way to
+                exit Canvas, change the content that you’re previewing, or perform contextual or
+                global actions in a click.
               </CaseStudyCard>
             </CaseStudyCards>
           </CaseStudySection>

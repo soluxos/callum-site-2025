@@ -68,7 +68,7 @@ export default function Footer() {
                 Github
               </Link>
               <Link href="mailto:callumharrod1994@hotmail.co.uk" className="hover:text-[#484848]">
-                Get in toucb via email
+                Get in touch via email
               </Link>
             </div>
           </div>

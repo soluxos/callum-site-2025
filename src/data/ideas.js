@@ -59,24 +59,6 @@ const ideas = [
     author: "Callum",
   },
   {
-    id: "1773668493182",
-    x: 1106,
-    y: 885,
-    color: "orange",
-    rotation: -0.7,
-    text: "Just going to add a post down here, because why not",
-    author: "Callum",
-  },
-  {
-    id: "1773669422167",
-    x: -177,
-    y: 760,
-    color: "blue",
-    rotation: 1.2,
-    text: "Lol hi",
-    author: "Callum",
-  },
-  {
     id: "1773669997593",
     x: -215,
     y: 123,
@@ -84,6 +66,14 @@ const ideas = [
     rotation: 1.3,
     text: "If you try and add post-its, they won't be saved, only I get that privelage 😘",
     author: "Callum",
+  },
+  {
+    id: "1773683591324",
+    x: 583,
+    y: 166,
+    color: "blue",
+    rotation: -0.6,
+    text: "I want to keep adding new pieces of UI to my site, I'm just treating it like my playground for making the stuff I can't make at work! 🥸",
   },
 ];
 

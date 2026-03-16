@@ -99,6 +99,13 @@ function StickyNote({
         e.stopPropagation();
         onPointerDown(e, note.id);
       }}
+      onTouchStart={e => {
+        if (isEditing) return;
+        e.stopPropagation();
+        // Single tap → select; movement is handled at canvas level if needed
+        const touch = e.touches[0];
+        onPointerDown({ clientX: touch.clientX, clientY: touch.clientY, button: 0 }, note.id);
+      }}
       onDoubleClick={e => {
         e.stopPropagation();
         onDoubleClick(note.id);
@@ -208,6 +215,7 @@ export default function IdeasCanvas({ notes: initialNotes, isDev }) {
   const toolbarDragRef = useRef(null);
   const panRef = useRef({ x: 0, y: 0, z: 1 });
   const midPanRef = useRef(null);
+  const touchRef = useRef(null); // touch pan/pinch state
   const notesRef = useRef(notes);
   const editingIdRef = useRef(null);
   const selectedIdRef = useRef(null);
@@ -280,6 +288,86 @@ export default function IdeasCanvas({ notes: initialNotes, isDev }) {
     }
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
+  }, [panX, panY, zoom]);
+
+  // Touch: single-finger pan, two-finger pinch-zoom
+  useEffect(() => {
+    const el = canvasRef.current;
+    if (!el) return;
+
+    function dist(a, b) {
+      const dx = a.clientX - b.clientX;
+      const dy = a.clientY - b.clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    function onTouchStart(e) {
+      // Don't hijack taps on notes (they have their own handlers)
+      if (e.target !== el) return;
+      e.preventDefault();
+      if (e.touches.length === 1) {
+        touchRef.current = {
+          type: "pan",
+          startMX: e.touches[0].clientX,
+          startMY: e.touches[0].clientY,
+          startPX: panRef.current.x,
+          startPY: panRef.current.y,
+        };
+      } else if (e.touches.length === 2) {
+        const d = dist(e.touches[0], e.touches[1]);
+        const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        touchRef.current = {
+          type: "pinch",
+          startDist: d,
+          startZ: panRef.current.z,
+          startPX: panRef.current.x,
+          startPY: panRef.current.y,
+          midX: mx,
+          midY: my,
+        };
+      }
+    }
+
+    function onTouchMove(e) {
+      const t = touchRef.current;
+      if (!t) return;
+      e.preventDefault();
+      const p = panRef.current;
+      if (t.type === "pan" && e.touches.length === 1) {
+        const newPX = t.startPX + (e.touches[0].clientX - t.startMX);
+        const newPY = t.startPY + (e.touches[0].clientY - t.startMY);
+        panRef.current = { ...p, x: newPX, y: newPY };
+        panX.set(newPX);
+        panY.set(newPY);
+      } else if (t.type === "pinch" && e.touches.length === 2) {
+        const d = dist(e.touches[0], e.touches[1]);
+        const newZ = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, t.startZ * (d / t.startDist)));
+        const mx = t.midX;
+        const my = t.midY;
+        const newPX = mx - (mx - t.startPX) * (newZ / t.startZ);
+        const newPY = my - (my - t.startPY) * (newZ / t.startZ);
+        panRef.current = { x: newPX, y: newPY, z: newZ };
+        panX.set(newPX);
+        panY.set(newPY);
+        zoom.set(newZ);
+      }
+    }
+
+    function onTouchEnd() {
+      touchRef.current = null;
+    }
+
+    el.addEventListener("touchstart", onTouchStart, { passive: false });
+    el.addEventListener("touchmove", onTouchMove, { passive: false });
+    el.addEventListener("touchend", onTouchEnd);
+    el.addEventListener("touchcancel", onTouchEnd);
+    return () => {
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchmove", onTouchMove);
+      el.removeEventListener("touchend", onTouchEnd);
+      el.removeEventListener("touchcancel", onTouchEnd);
+    };
   }, [panX, panY, zoom]);
 
   // Window-level mouse + keyboard events

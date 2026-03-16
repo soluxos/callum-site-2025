@@ -7,10 +7,11 @@ import ImageMarquee from "@/components/ImageMarquee/ImageMarquee";
 import AnimatedGradientBackground from "@/components/AnimatedGradientBackground/AnimatedGradientBackground";
 import HeroBubbles from "@/components/HeroBubbles/HeroBubbles";
 import FadeInUp from "@/components/FadeInUp/FadeInUp";
+import HomeStickyNotes from "@/components/HomeStickyNotes/HomeStickyNotes";
 
 export default function Home() {
   return (
-    <main className="flex flex-col md:gap-[240px] gap-[120px]">
+    <main className="flex flex-col gap-[120px]">
       <div className="flex flex-col gap-[120px]">
         <FadeInUp>
           <section className="flex w-full flex-col gap-2 items-center justify-center text-center">
@@ -38,7 +39,7 @@ export default function Home() {
             </div>
           </section>
         </FadeInUp>
-
+        {/* Case studies section */}
         <FadeInUp delay={0.1}>
           <section className="flex flex-col gap-4">
             <div className="grid gap-4 md:grid-cols-2">
@@ -206,6 +207,7 @@ export default function Home() {
         </FadeInUp>
       </div>
 
+      {/* Side projects section */}
       <FadeInUp>
         <section className="flex flex-col gap-6">
           <h2 className="font-ppmondwest text-[24px] leading-[1.25]">Some side projects</h2>
@@ -276,6 +278,11 @@ export default function Home() {
             </a>
           </div>
         </section>
+      </FadeInUp>
+
+      {/* Notes section */}
+      <FadeInUp>
+        <HomeStickyNotes />
       </FadeInUp>
     </main>
   );
