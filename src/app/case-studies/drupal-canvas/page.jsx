@@ -34,6 +34,7 @@ export default function DrupalCanvasCaseStudy() {
     "Structuring the shell",
     "Creating new features",
     "What I've done",
+    "Results",
     "End notes",
   ];
 
@@ -44,7 +45,7 @@ export default function DrupalCanvasCaseStudy() {
     },
     {
       label: "Outcome",
-      value: "A new site building and editing experience for Drupal",
+      value: "Adopted by over 4,500 websites in 3.5 months.",
     },
     {
       label: "Deliverables",
@@ -154,7 +155,7 @@ export default function DrupalCanvasCaseStudy() {
           <div id="overview" className="flex flex-col gap-20 scroll-mt-8">
             <CaseStudyHero
               title="Drupal Canvas"
-              description="How I designed and shipped the future of building and editing sites with Drupal. Early 2025 I joined the Product Design team to help, since then I led the design of the new editing and site building experience for Drupal, which is now live and being used by thousands of users."
+              description="How I designed and shipped the future of building and editing sites with Drupal. I led the design of the new editing and site building experience, which has since been adopted by over 4,500 websites in just three and a half months."
             />
             {/* <FadeInUp delay={0.1}>
               <section className="flex flex-col gap-4">
@@ -227,11 +228,11 @@ export default function DrupalCanvasCaseStudy() {
         <FadeInUp>
           <CaseStudySection title="My involvement">
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              This isn’t a typical design project, usually you’d be there from the start, but I was
-              late to the party. Originally I was going to be a front-end engineer on this, but I
-              noticed that there wasn’t a design system in place for us to build out the necessary
-              UI. This is where I started collating everything that was available from the original
-              designers, and started to create a design system.
+              This isn't a typical design project, usually you'd be there from the start, but I was
+              late to the party. Originally I was going to be a front-end engineer on this, but as
+              the project was moving fast and at an early stage, a design system hadn't yet been
+              formalised. I took the initiative to pull together the existing design work and build
+              a cohesive system from it.
             </p>
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
               This is how I was offered the job of Senior Product at Acquia. I was making strides on
@@ -240,14 +241,15 @@ export default function DrupalCanvasCaseStudy() {
             </p>
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
               While organising I improved on the UI of each of our components. Due to the deep
-              technical complexity of the product, there were some aspects of our UI that weren’t
-              very intuitive, or just weren’t fit for the job.
+              technical complexity of the product, there were some aspects of our UI that weren't
+              very intuitive, or just weren't fit for the job.
             </p>
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              Since then I have redesigned the entire UI, worked with developers closely on the
-              interaction design, designed multiple new features that required turning very complex
-              workflows into simple processes, helping designers work on new features by guiding
-              them through complex engineering requirements, and a lot more.
+              Since then I have led a comprehensive redesign of the UI, worked with developers
+              closely on the interaction design, designed multiple new features that required
+              turning very complex workflows into simple processes, collaborating with designers on
+              new features by bridging the gap between design and the complex engineering
+              constraints of the product, and a lot more.
             </p>
           </CaseStudySection>
         </FadeInUp>
@@ -257,13 +259,12 @@ export default function DrupalCanvasCaseStudy() {
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
               Joining the project somewhat late meant that certain technical decisions had already
               been made, and there were certain design decisions that had been made too. One of the
-              largest problems was that there was no design system in place. This meant that I had
-              to create a design system from the existing UI. This entailed auditing all of the
-              designs that weren't components and turning them into components, and then organising
-              everything into a clear atomic design system.
+              largest challenges was that a design system hadn't yet been formalised. I worked to
+              build on the strong foundation of existing UI work, auditing and consolidating designs
+              into components, and organising everything into a clear atomic design system.
             </p>
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              The codebase was using Radix as it's underlying component library, so I had to create
+              The codebase was using Radix as its underlying component library, so I had to create
               the design system to fully reflect this. I found that Radix offered a design system
               file for the atomic elements. With this I had the core building blocks, however, I
               needed to remove all of the options that we weren't going to utilise for other
@@ -272,7 +273,7 @@ export default function DrupalCanvasCaseStudy() {
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
               Over time I designed a lot of components to be more intuitive and better suited to the
               needs of our users. With this I also created clear rules and guides for how to use
-              each of the components. On top of this there was usage guides for icons, colours, and
+              each of the components. On top of this there were usage guides for icons, colours, and
               text to ensure a consistent experience when using Drupal Canvas.
             </p>
             <CaseStudyCards>
@@ -369,6 +370,26 @@ export default function DrupalCanvasCaseStudy() {
         </FadeInUp>
 
         <FadeInUp>
+          <CaseStudySection title="Results">
+            <div className="max-w-[588px] space-y-4 text-[14px] font-medium leading-[1.5] text-[#656565]">
+              <p>
+                Since the 1.0 release, Drupal Canvas has been adopted by over 4,500 websites in just
+                three and a half months. For a product built to modernise one of the web's
+                longest-standing CMS platforms, this adoption rate reflects both the demand for a
+                better experience and the quality of what the team shipped.
+              </p>
+            </div>
+            <CaseStudyCards>
+              <CaseStudyCard
+                width="full"
+                image="/images/case-studies/drupal-canvas/case-study-result.png"
+                imageAlt="Description"
+              />
+            </CaseStudyCards>
+          </CaseStudySection>
+        </FadeInUp>
+
+        <FadeInUp>
           <CaseStudySection title="End notes">
             <div className="max-w-[588px] space-y-4 text-[14px] font-medium leading-[1.5] text-[#656565]">
               <p>
@@ -386,7 +407,7 @@ export default function DrupalCanvasCaseStudy() {
               <p>
                 Ultimately, I solve problems, but I don’t let anything get in the way of that. I
                 think you need to be a nerd to solve this stuff, and if that means working outside
-                of the realms of a typical product designer. So be it.
+                of the realms of a typical product designer.
               </p>
             </div>
           </CaseStudySection>
