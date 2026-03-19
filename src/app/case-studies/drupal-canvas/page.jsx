@@ -92,7 +92,7 @@ export default function DrupalCanvasCaseStudy() {
     {
       title: "Help and train designers",
       description:
-        "As the lead for the project I’ve had to help and train all other designers on the project",
+        "As the lead for the project I’ve helped senior designers and trained junior designers on the project",
       media: (
         <div className="flex items-center gap-2">
           {[ellipse16, ellipse17, ellipse18, ellipse19, ellipse20].map(src => (
