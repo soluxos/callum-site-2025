@@ -255,9 +255,25 @@ export default function DrupalCanvasCaseStudy() {
         <FadeInUp>
           <CaseStudySection title="Crafting a design system">
             <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              As I said above, there wasn’t a design system in place for us to build out the
-              necessary UI. This is where I started to take inventory of what we had and bring this
-              into a sensible system. Take a look at what things looked like, and how it is now:
+              Joining the project somewhat late meant that certain technical decisions had already
+              been made, and there were certain design decisions that had been made too. One of the
+              largest problems was that there was no design system in place. This meant that I had
+              to create a design system from the existing UI. This entailed auditing all of the
+              designs that weren't components and turning them into components, and then organising
+              everything into a clear atomic design system.
+            </p>
+            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+              The codebase was using Radix as it's underlying component library, so I had to create
+              the design system to fully reflect this. I found that Radix offered a design system
+              file for the atomic elements. With this I had the core building blocks, however, I
+              needed to remove all of the options that we weren't going to utilise for other
+              designers on the team.
+            </p>
+            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+              Over time I designed a lot of components to be more intuitive and better suited to the
+              needs of our users. With this I also created clear rules and guides for how to use
+              each of the components. On top of this there was usage guides for icons, colours, and
+              text to ensure a consistent experience when using Drupal Canvas.
             </p>
             <CaseStudyCards>
               <CaseStudyCard

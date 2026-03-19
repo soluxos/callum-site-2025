@@ -12,7 +12,7 @@ import HomeStickyNotes from "@/components/HomeStickyNotes/HomeStickyNotes";
 export default function Home() {
   return (
     <main className="flex flex-col gap-[120px]">
-      <div className="flex flex-col gap-[120px]">
+      <div className="flex flex-col gap-[120px] md:gap-[240px]">
         <FadeInUp>
           <section className="flex w-full flex-col gap-2 items-center justify-center text-center">
             <div className="hero-text-container w-full flex flex-col gap-2 items-center justify-start">
