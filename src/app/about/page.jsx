@@ -79,8 +79,8 @@ export default function About() {
                   one of my favourite sites I&apos;ve ever worked on
                 </a>{" "}
                 , before leaving I was awarded with employee of the month (I still have the trophy
-                to prove it), they desperately wanted to keep me, but at the time I wasn&apsos;t
-                able to keeo commuting 5 hours a day.
+                to prove it), they desperately wanted to keep me, but at the time I wasn&apos;t able
+                to keeo commuting 5 hours a day.
               </div>
             </div>
             <div className="flex flex-col gap-2">
