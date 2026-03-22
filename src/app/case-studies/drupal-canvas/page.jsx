@@ -1,7 +1,6 @@
 import CaseStudyBentoGrid from "@/components/case-study/CaseStudyBentoGrid";
-import CaseStudyHero from "@/components/case-study/CaseStudyHero";
+import CaseStudyFullHero from "@/components/case-study/CaseStudyFullHero";
 import CaseStudyLayout from "@/components/case-study/CaseStudyLayout";
-import CaseStudyMetaGrid from "@/components/case-study/CaseStudyMetaGrid";
 import CaseStudySection from "@/components/case-study/CaseStudySection";
 import CaseStudySlider from "@/components/case-study/CaseStudySlider";
 import FadeInUp from "@/components/FadeInUp/FadeInUp";
@@ -149,15 +148,18 @@ export default function DrupalCanvasCaseStudy() {
   ];
 
   return (
-    <CaseStudyLayout sections={sections}>
-      <main className="flex flex-col gap-[120px]">
-        <FadeInUp>
-          <div id="overview" className="flex flex-col gap-20 scroll-mt-8">
-            <CaseStudyHero
-              title="Drupal Canvas"
-              description="How I designed and shipped the future of building and editing sites with Drupal. I led the design of the new editing and site building experience, which has since been adopted by over 4,500 websites in just three and a half months."
-            />
-            {/* <FadeInUp delay={0.1}>
+    <>
+      <CaseStudyFullHero
+        title="Drupal Canvas"
+        description="How I designed and shipped the future of building and editing sites with Drupal. I led the design of the new editing and site building experience, which has since been adopted by over 4,500 websites in just three and a half months."
+        logo="/images/logos/acquia-logo.svg"
+        logoAlt="Acquia logo"
+        preset="ocean"
+        metaItems={metaItems}
+      />
+      <CaseStudyLayout sections={sections}>
+        <main className="flex flex-col gap-[120px] mt-20">
+          {/* <FadeInUp delay={0.1}>
               <section className="flex flex-col gap-4">
                 <div className="grid gap-4">
                   <Link
@@ -202,217 +204,216 @@ export default function DrupalCanvasCaseStudy() {
               </section>
             </FadeInUp> */}
 
-            <CaseStudyMetaGrid items={metaItems} />
-          </div>
-        </FadeInUp>
+          <FadeInUp delay={0.1}>
+            <section className="w-full">
+              <CaseStudySlider images={sliderImages} />
+            </section>
+          </FadeInUp>
 
-        <FadeInUp delay={0.1}>
-          <section className="w-full">
-            <CaseStudySlider images={sliderImages} />
-          </section>
-        </FadeInUp>
-
-        <FadeInUp>
-          <CaseStudySection title="The problem">
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              Drupal is an incredibly powerful content management system, but it has a reputation
-              for being difficult to use. The editing experience was clunky and unintuitive, and the
-              site building experience was even worse. This was a problem for our users, and it was
-              a problem for Drupal as a platform. We needed to create a new experience that would
-              make Drupal more accessible and easier to use, while still maintaining the power and
-              flexibility that our users love.
-            </p>
-          </CaseStudySection>
-        </FadeInUp>
-
-        <FadeInUp>
-          <CaseStudySection title="My involvement">
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              This isn't a typical design project, usually you'd be there from the start, but I was
-              late to the party. Originally I was going to be a front-end engineer on this, but as
-              the project was moving fast and at an early stage, a design system hadn't yet been
-              formalised. I took the initiative to pull together the existing design work and build
-              a cohesive system from it.
-            </p>
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              This is how I was offered the job of Senior Product at Acquia. I was making strides on
-              the design system, and created the design files that every developer would want to
-              work from. From here I organised everything into a clear atomic design system.
-            </p>
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              While organising I improved on the UI of each of our components. Due to the deep
-              technical complexity of the product, there were some aspects of our UI that weren't
-              very intuitive, or just weren't fit for the job.
-            </p>
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              Since then I have led a comprehensive redesign of the UI, worked with developers
-              closely on the interaction design, designed multiple new features that required
-              turning very complex workflows into simple processes, collaborating with designers on
-              new features by bridging the gap between design and the complex engineering
-              constraints of the product, and a lot more.
-            </p>
-          </CaseStudySection>
-        </FadeInUp>
-
-        <FadeInUp>
-          <CaseStudySection title="Crafting a design system">
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              Joining the project somewhat late meant that certain technical decisions had already
-              been made, and there were certain design decisions that had been made too. One of the
-              largest challenges was that a design system hadn't yet been formalised. I worked to
-              build on the strong foundation of existing UI work, auditing and consolidating designs
-              into components, and organising everything into a clear atomic design system.
-            </p>
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              The codebase was using Radix as its underlying component library, so I had to create
-              the design system to fully reflect this. I found that Radix offered a design system
-              file for the atomic elements. With this I had the core building blocks, however, I
-              needed to remove all of the options that we weren't going to utilise for other
-              designers on the team.
-            </p>
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              Over time I designed a lot of components to be more intuitive and better suited to the
-              needs of our users. With this I also created clear rules and guides for how to use
-              each of the components. On top of this there were usage guides for icons, colours, and
-              text to ensure a consistent experience when using Drupal Canvas.
-            </p>
-            <CaseStudyCards>
-              <CaseStudyCard
-                width="half"
-                image="/images/case-studies/drupal-canvas/case-study-components.png"
-                imageAlt="Description"
-              >
-                Components created with variables and autolayout
-              </CaseStudyCard>
-              <CaseStudyCard
-                width="half"
-                image="/images/case-studies/drupal-canvas/case-study-guides.png"
-                imageAlt="Description"
-              >
-                Rules and guides created for consistency
-              </CaseStudyCard>
-              <CaseStudyCard
-                width="full"
-                image="/images/case-studies/drupal-canvas/case-study-documented.png"
-                imageAlt="Description"
-              >
-                Every component organised into groups and documented
-              </CaseStudyCard>
-            </CaseStudyCards>
-          </CaseStudySection>
-        </FadeInUp>
-
-        <FadeInUp>
-          <CaseStudySection title="Structuring the shell">
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              One of the largest challenges of this project was structuring the shell of the
-              product. We needed to fine-tune a system, that would not only serve as a site building
-              and editing interface for our core product, but one that would be future-proof.
-            </p>
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              The shell was created to take up as little space as possible, while still being able
-              to expand to show more options based on the task that a user might take. If they
-              wanted to add new items, or edit their existing page, the items become contextual to
-              the area of the UI that you're in.
-            </p>
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              One of the largest challenges was creating all of this that would work today, but
-              ensure that it would facilitate new features that would be added in the future. This
-              meant solving problems that we didn't necessarily have yet.
-            </p>
-            <CaseStudyCards>
-              <CaseStudyCard
-                width="half"
-                image="/images/case-studies/drupal-canvas/case-study-consistent-experience.png"
-                imageAlt="Description"
-              >
-                Each panel has been designed with a consistent experience. It never navigates the
-                user away at a top level, it always acts as a navigation device, and only navigates
-                once you’ve selected a context.
-              </CaseStudyCard>
-              <CaseStudyCard
-                width="half"
-                image="/images/case-studies/drupal-canvas/case-study-top-bar.png"
-                imageAlt="Description"
-              >
-                The top bar has been designed for multiple different functions. We have a way to
-                exit Canvas, change the content that you’re previewing, or perform contextual or
-                global actions in a click.
-              </CaseStudyCard>
-            </CaseStudyCards>
-          </CaseStudySection>
-        </FadeInUp>
-
-        <FadeInUp>
-          <CaseStudySection title="Creating new features">
-            <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-              Each one of the features that I worked on were extensively broken down into clear user
-              flows. This was to ensure that the engineers and other designers working on the
-              project could understand the complex workflows that we had to create, and how we
-              turned these into simple processes for our users.
-            </p>
-            <CaseStudyCards>
-              <CaseStudyCard
-                width="full"
-                image="/images/case-studies/drupal-canvas/case-study-step-by-step.png"
-                imageAlt="Description"
-              >
-                Step-by-step breakdown of the user flows
-              </CaseStudyCard>
-            </CaseStudyCards>
-          </CaseStudySection>
-        </FadeInUp>
-
-        <FadeInUp>
-          <CaseStudySection title="What I've done">
-            <CaseStudyBentoGrid items={bentoItems} />
-          </CaseStudySection>
-        </FadeInUp>
-
-        <FadeInUp>
-          <CaseStudySection title="Results">
-            <div className="max-w-[588px] space-y-4 text-[14px] font-medium leading-[1.5] text-[#656565]">
-              <p>
-                Since the 1.0 release, Drupal Canvas has been adopted by over 4,500 websites in just
-                three and a half months. For a product built to modernise one of the web's
-                longest-standing CMS platforms, this adoption rate reflects both the demand for a
-                better experience and the quality of what the team shipped.
+          <FadeInUp>
+            <CaseStudySection title="The problem">
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                Drupal is an incredibly powerful content management system, but it has a reputation
+                for being difficult to use. The editing experience was clunky and unintuitive, and
+                the site building experience was even worse. This was a problem for our users, and
+                it was a problem for Drupal as a platform. We needed to create a new experience that
+                would make Drupal more accessible and easier to use, while still maintaining the
+                power and flexibility that our users love.
               </p>
-            </div>
-            <CaseStudyCards>
-              <CaseStudyCard
-                width="full"
-                image="/images/case-studies/drupal-canvas/case-study-result.png"
-                imageAlt="Description"
-              />
-            </CaseStudyCards>
-          </CaseStudySection>
-        </FadeInUp>
+            </CaseStudySection>
+          </FadeInUp>
 
-        <FadeInUp>
-          <CaseStudySection title="End notes">
-            <div className="max-w-[588px] space-y-4 text-[14px] font-medium leading-[1.5] text-[#656565]">
-              <p>
-                As you can probably tell, this isn’t a typical case study where I go into absolutely
-                everything. If you want to know more about the project, I’ll happily show you how
-                I’ve created everything listed above and more. This has been created as a way of
-                showing the value I’ve generated for this product.
+          <FadeInUp>
+            <CaseStudySection title="My involvement">
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                This isn't a typical design project, usually you'd be there from the start, but I
+                was late to the party. Originally I was going to be a front-end engineer on this,
+                but as the project was moving fast and at an early stage, a design system hadn't yet
+                been formalised. I took the initiative to pull together the existing design work and
+                build a cohesive system from it.
               </p>
-              <p>
-                However, this project isn’t a typical design process. Many times I’ve had to work as
-                a product manager to figure out the requirements, or I’ve had to work as an engineer
-                to solve technical limitations. None of this fits into the regular design workflow,
-                but that’s fine!
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                This is how I was offered the job of Senior Product at Acquia. I was making strides
+                on the design system, and created the design files that every developer would want
+                to work from. From here I organised everything into a clear atomic design system.
               </p>
-              <p>
-                Ultimately, I solve problems, but I don’t let anything get in the way of that. I
-                think you need to be a nerd to solve this stuff, and if that means working outside
-                of the realms of a typical product designer.
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                While organising I improved on the UI of each of our components. Due to the deep
+                technical complexity of the product, there were some aspects of our UI that weren't
+                very intuitive, or just weren't fit for the job.
               </p>
-            </div>
-          </CaseStudySection>
-        </FadeInUp>
-      </main>
-    </CaseStudyLayout>
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                Since then I have led a comprehensive redesign of the UI, worked with developers
+                closely on the interaction design, designed multiple new features that required
+                turning very complex workflows into simple processes, collaborating with designers
+                on new features by bridging the gap between design and the complex engineering
+                constraints of the product, and a lot more.
+              </p>
+            </CaseStudySection>
+          </FadeInUp>
+
+          <FadeInUp>
+            <CaseStudySection title="Crafting a design system">
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                Joining the project somewhat late meant that certain technical decisions had already
+                been made, and there were certain design decisions that had been made too. One of
+                the largest challenges was that a design system hadn't yet been formalised. I worked
+                to build on the strong foundation of existing UI work, auditing and consolidating
+                designs into components, and organising everything into a clear atomic design
+                system.
+              </p>
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                The codebase was using Radix as its underlying component library, so I had to create
+                the design system to fully reflect this. I found that Radix offered a design system
+                file for the atomic elements. With this I had the core building blocks, however, I
+                needed to remove all of the options that we weren't going to utilise for other
+                designers on the team.
+              </p>
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                Over time I designed a lot of components to be more intuitive and better suited to
+                the needs of our users. With this I also created clear rules and guides for how to
+                use each of the components. On top of this there were usage guides for icons,
+                colours, and text to ensure a consistent experience when using Drupal Canvas.
+              </p>
+              <CaseStudyCards>
+                <CaseStudyCard
+                  width="half"
+                  image="/images/case-studies/drupal-canvas/case-study-components.png"
+                  imageAlt="Description"
+                >
+                  Components created with variables and autolayout
+                </CaseStudyCard>
+                <CaseStudyCard
+                  width="half"
+                  image="/images/case-studies/drupal-canvas/case-study-guides.png"
+                  imageAlt="Description"
+                >
+                  Rules and guides created for consistency
+                </CaseStudyCard>
+                <CaseStudyCard
+                  width="full"
+                  image="/images/case-studies/drupal-canvas/case-study-documented.png"
+                  imageAlt="Description"
+                >
+                  Every component organised into groups and documented
+                </CaseStudyCard>
+              </CaseStudyCards>
+            </CaseStudySection>
+          </FadeInUp>
+
+          <FadeInUp>
+            <CaseStudySection title="Structuring the shell">
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                One of the largest challenges of this project was structuring the shell of the
+                product. We needed to fine-tune a system, that would not only serve as a site
+                building and editing interface for our core product, but one that would be
+                future-proof.
+              </p>
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                The shell was created to take up as little space as possible, while still being able
+                to expand to show more options based on the task that a user might take. If they
+                wanted to add new items, or edit their existing page, the items become contextual to
+                the area of the UI that you're in.
+              </p>
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                One of the largest challenges was creating all of this that would work today, but
+                ensure that it would facilitate new features that would be added in the future. This
+                meant solving problems that we didn't necessarily have yet.
+              </p>
+              <CaseStudyCards>
+                <CaseStudyCard
+                  width="half"
+                  image="/images/case-studies/drupal-canvas/case-study-consistent-experience.png"
+                  imageAlt="Description"
+                >
+                  Each panel has been designed with a consistent experience. It never navigates the
+                  user away at a top level, it always acts as a navigation device, and only
+                  navigates once you’ve selected a context.
+                </CaseStudyCard>
+                <CaseStudyCard
+                  width="half"
+                  image="/images/case-studies/drupal-canvas/case-study-top-bar.png"
+                  imageAlt="Description"
+                >
+                  The top bar has been designed for multiple different functions. We have a way to
+                  exit Canvas, change the content that you’re previewing, or perform contextual or
+                  global actions in a click.
+                </CaseStudyCard>
+              </CaseStudyCards>
+            </CaseStudySection>
+          </FadeInUp>
+
+          <FadeInUp>
+            <CaseStudySection title="Creating new features">
+              <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
+                Each one of the features that I worked on were extensively broken down into clear
+                user flows. This was to ensure that the engineers and other designers working on the
+                project could understand the complex workflows that we had to create, and how we
+                turned these into simple processes for our users.
+              </p>
+              <CaseStudyCards>
+                <CaseStudyCard
+                  width="full"
+                  image="/images/case-studies/drupal-canvas/case-study-step-by-step.png"
+                  imageAlt="Description"
+                >
+                  Step-by-step breakdown of the user flows
+                </CaseStudyCard>
+              </CaseStudyCards>
+            </CaseStudySection>
+          </FadeInUp>
+
+          <FadeInUp>
+            <CaseStudySection title="What I've done">
+              <CaseStudyBentoGrid items={bentoItems} />
+            </CaseStudySection>
+          </FadeInUp>
+
+          <FadeInUp>
+            <CaseStudySection title="Results">
+              <div className="max-w-[588px] space-y-4 text-[14px] font-medium leading-[1.5] text-[#656565]">
+                <p>
+                  Since the 1.0 release, Drupal Canvas has been adopted by over 4,500 websites in
+                  just three and a half months. For a product built to modernise one of the web's
+                  longest-standing CMS platforms, this adoption rate reflects both the demand for a
+                  better experience and the quality of what the team shipped.
+                </p>
+              </div>
+              <CaseStudyCards>
+                <CaseStudyCard
+                  width="full"
+                  image="/images/case-studies/drupal-canvas/case-study-result.png"
+                  imageAlt="Description"
+                />
+              </CaseStudyCards>
+            </CaseStudySection>
+          </FadeInUp>
+
+          <FadeInUp>
+            <CaseStudySection title="End notes">
+              <div className="max-w-[588px] space-y-4 text-[14px] font-medium leading-[1.5] text-[#656565]">
+                <p>
+                  As you can probably tell, this isn’t a typical case study where I go into
+                  absolutely everything. If you want to know more about the project, I’ll happily
+                  show you how I’ve created everything listed above and more. This has been created
+                  as a way of showing the value I’ve generated for this product.
+                </p>
+                <p>
+                  However, this project isn’t a typical design process. Many times I’ve had to work
+                  as a product manager to figure out the requirements, or I’ve had to work as an
+                  engineer to solve technical limitations. None of this fits into the regular design
+                  workflow, but that’s fine!
+                </p>
+                <p>
+                  Ultimately, I solve problems, but I don’t let anything get in the way of that. I
+                  think you need to be a nerd to solve this stuff, and if that means working outside
+                  of the realms of a typical product designer.
+                </p>
+              </div>
+            </CaseStudySection>
+          </FadeInUp>
+        </main>
+      </CaseStudyLayout>
+    </>
   );
 }

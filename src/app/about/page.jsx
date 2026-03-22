@@ -7,7 +7,7 @@ export default function About() {
     <main className="flex flex-col gap-[120px]">
       <FadeInUp>
         <section className="flex flex-col gap-5 max-w-[710px]">
-          <h1 className="w-full max-w-[591px] font-ppmondwest text-[48px] leading-[1.25] mb-5">
+          <h1 className="w-full max-w-[588px] font-ppmondwest text-[48px] leading-[1.25] mb-5">
             About
           </h1>
           <AboutChat />

@@ -13,6 +13,7 @@ import SiteShell from "@/components/SiteShell/SiteShell";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import WipBanner from "@/components/WipBanner/WipBanner";
+import { PasswordGateProvider } from "@/contexts/PasswordGateContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,19 +59,21 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SiteShell>
           <EditModeProvider>
-            <DraggableCanvas>
-              <div id="page-content">
-                {/* <div aria-hidden="true" className="noise-overlay" /> */}
-                {/* <DitherOverlay opacity="0.6" /> */}
-                {/* <WipBanner /> */}
-                <PageWrapper>
-                  <Navigation />
-                  <PageTransition>{children}</PageTransition>
-                  <ConditionalFooter />
-                </PageWrapper>
-              </div>
-              <LivePresence />
-            </DraggableCanvas>
+            <PasswordGateProvider>
+              <DraggableCanvas>
+                <div id="page-content">
+                  {/* <div aria-hidden="true" className="noise-overlay" /> */}
+                  {/* <DitherOverlay opacity="0.6" /> */}
+                  {/* <WipBanner /> */}
+                  <PageWrapper>
+                    <Navigation />
+                    <PageTransition>{children}</PageTransition>
+                    <ConditionalFooter />
+                  </PageWrapper>
+                </div>
+                <LivePresence />
+              </DraggableCanvas>
+            </PasswordGateProvider>
           </EditModeProvider>
         </SiteShell>
       </body>

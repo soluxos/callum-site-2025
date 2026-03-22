@@ -1,25 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
+import { usePasswordGate } from "@/contexts/PasswordGateContext";
 
-const SESSION_KEY = "pg_unlocked";
+const COOKIE_KEY = "pg_unlocked";
 
-export default function PasswordGate({ password, children }) {
-  const [unlocked, setUnlocked] = useState(false);
+function setCookie(name, value, days = 30) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${value}; expires=${expires}; path=/; SameSite=Strict`;
+}
+
+export default function PasswordGate({ password, children, defaultUnlocked = false }) {
+  const [unlocked, setUnlocked] = useState(defaultUnlocked);
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
+  const { setIsLocked } = usePasswordGate();
 
-  useEffect(() => {
-    const stored = sessionStorage.getItem(SESSION_KEY);
-    if (stored === "1") setUnlocked(true);
-    setHydrated(true);
-  }, []);
+  useLayoutEffect(() => {
+    setIsLocked(!unlocked);
+  }, [unlocked]);
 
   function handleSubmit(e) {
     e.preventDefault();
     if (input === password) {
-      sessionStorage.setItem(SESSION_KEY, "1");
+      setCookie(COOKIE_KEY, "1");
       setUnlocked(true);
       setError(false);
     } else {
@@ -28,11 +32,10 @@ export default function PasswordGate({ password, children }) {
     }
   }
 
-  if (!hydrated) return null;
   if (unlocked) return children;
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 px-4">
+    <div className="flex flex-col items-center justify-center gap-8 py-40">
       <div className="flex flex-col items-center gap-2 text-center">
         <h1 className="text-[22px] font-semibold tracking-tight text-[#1a1a1a]">
           Password protected

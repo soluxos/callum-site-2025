@@ -14,7 +14,7 @@ export default function Home() {
     <main className="flex flex-col gap-[120px]">
       <div className="flex flex-col gap-[120px] md:gap-[240px]">
         <FadeInUp>
-          <section className="flex w-full flex-col gap-2 items-center justify-center text-center">
+          <section className="flex w-full flex-col gap-2 items-center justify-center text-center pb-[120px]">
             <div className="hero-text-container w-full flex flex-col gap-2 items-center justify-start">
               <HeroBubbles
                 messages={[
@@ -39,173 +39,216 @@ export default function Home() {
             </div>
           </section>
         </FadeInUp>
-        {/* Case studies section */}
-        <FadeInUp delay={0.1}>
-          <section className="flex flex-col gap-4">
-            <div className="grid gap-4 md:grid-cols-2">
-              <Link href="/case-studies/drupal-canvas" className="flex flex-col gap-2">
-                <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
-                  <AnimatedGradientBackground
-                    preset="ocean"
-                    animationDuration={50}
-                    blurAmount={50}
-                    opacity={1}
-                    grain={true}
-                    grainOpacity={0.015}
-                    dither={true}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      minHeight: "100%",
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                    }}
-                  />
-                  <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
-                    <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
-                      Public
-                    </p>
-                    <div className="relative flex flex-col items-center justify-center text-center">
-                      <div className="h-10 flex items-end justify-center mb-2">
-                        <img
-                          src="/images/logos/acquia-logo.svg"
-                          alt="Acquia logo"
-                          className="max-w-[80px]"
-                        />
-                      </div>
-                      <p className="font-ppmondwest text-[40px] leading-[1.5] text-[#fff]">
-                        Drupal Canvas
-                      </p>
-                      <p className="text-[16px] max-w-[320px] font-medium leading-[1.5] text-[#ffffffbf]">
-                        How I designed and shipped the future of building and editing sites with
-                        Drupal
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-              <Link href="/case-studies/union-roasted" className="flex flex-col gap-2">
-                <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
-                  <AnimatedGradientBackground
-                    preset="rachelChen"
-                    animationDuration={50}
-                    blurAmount={50}
-                    opacity={1}
-                    grain={true}
-                    grainOpacity={0.015}
-                    dither={true}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      minHeight: "100%",
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                    }}
-                  />
-                  <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
-                    <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
-                      Public
-                    </p>
-                    <div className="relative flex flex-col items-center justify-center text-center">
-                      <div className="h-10 flex items-end justify-center mb-2">
-                        <img
-                          src="/images/logos/union-logo.png"
-                          alt="Union Roasted logo"
-                          className="max-w-[80px]"
-                        />
-                      </div>
-                      <p className="font-ppmondwest text-[40px] leading-[1.5] text-[#fff]">
-                        Union Roasted
-                      </p>
-                      <p className="text-[16px] max-w-[320px] font-medium leading-[1.5] text-[#ffffffbf]">
-                        The story of how I designed a site for one of the largest UK coffee brands
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-              <Link href="/case-studies/acquia-unification" className="flex flex-col gap-2">
-                <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
-                  <AnimatedGradientBackground
-                    preset="tropical"
-                    animationDuration={50}
-                    blurAmount={50}
-                    opacity={1}
-                    grain={true}
-                    grainOpacity={0.015}
-                    dither={true}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      minHeight: "100%",
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                    }}
-                  />
-                  <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
-                    <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
-                      Password Protected
-                    </p>
-                    <div className="relative flex flex-col items-center justify-center text-center">
-                      <div className="h-10 flex items-end justify-center mb-2">
-                        <img
-                          src="/images/logos/acquia-logo.svg"
-                          alt="Acquia logo"
-                          className="max-w-[80px]"
-                        />
-                      </div>
-                      <p className="font-ppmondwest text-[40px] leading-[1.5] text-[#fff]">
-                        Acquia Unification
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-              <Link href="/case-studies/acquia-ai" className="flex flex-col gap-2">
-                <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
-                  <AnimatedGradientBackground
-                    preset="fire"
-                    animationDuration={50}
-                    blurAmount={50}
-                    opacity={1}
-                    grain={true}
-                    grainOpacity={0.015}
-                    dither={true}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      minHeight: "100%",
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                    }}
-                  />
-                  <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
-                    <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
-                      Password Protected
-                    </p>
-                    <div className="relative flex flex-col items-center justify-center text-center">
-                      <div className="h-10 flex items-end justify-center mb-2">
-                        <img
-                          src="/images/logos/acquia-logo.svg"
-                          alt="Acquia logo"
-                          className="max-w-[80px]"
-                        />
-                      </div>
-                      <p className="font-ppmondwest text-[40px] leading-[1.5] text-[#fff]">
-                        Acquia AI
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </section>
-        </FadeInUp>
       </div>
+
+      {/* Case studies section */}
+      <FadeInUp delay={0.1}>
+        <section className="flex flex-col gap-4">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Link href="/case-studies/drupal-canvas" className="flex flex-col gap-2">
+              <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
+                <AnimatedGradientBackground
+                  preset="ocean"
+                  animationDuration={50}
+                  blurAmount={50}
+                  opacity={1}
+                  grain={true}
+                  grainOpacity={0.015}
+                  dither={true}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    minHeight: "100%",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                  }}
+                />
+                <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
+                  <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
+                    Public
+                  </p>
+                  <div className="relative flex flex-col items-center justify-center text-center">
+                    <div className="h-10 flex items-end justify-center mb-2">
+                      <img
+                        src="/images/logos/acquia-logo.svg"
+                        alt="Acquia logo"
+                        className="max-w-[80px]"
+                      />
+                    </div>
+                    <p className="font-ppmondwest text-[40px] leading-[1.5] text-[#fff]">
+                      Drupal Canvas
+                    </p>
+                    <p className="text-[16px] max-w-[440px] font-medium leading-[1.5] text-[#ffffffbf]">
+                      How I designed and shipped the future of building and editing sites with
+                      Drupal
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+            <Link href="/case-studies/site-studio-cohesion" className="flex flex-col gap-2">
+              <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
+                <AnimatedGradientBackground
+                  preset="forest"
+                  animationDuration={50}
+                  blurAmount={50}
+                  opacity={1}
+                  grain={true}
+                  grainOpacity={0.015}
+                  dither={true}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    minHeight: "100%",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                  }}
+                />
+                <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
+                  <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
+                    Public
+                  </p>
+                  <div className="relative flex flex-col items-center justify-center text-center">
+                    <div className="h-10 flex items-end justify-center mb-2">
+                      <img
+                        src="/images/logos/acquia-logo.svg"
+                        alt="Acquia logo"
+                        className="max-w-[80px]"
+                      />
+                    </div>
+                    <p className="font-ppmondwest text-[40px] leading-[1.5] text-[#fff]">
+                      Site Studio / Cohesion
+                    </p>
+                    <p className="text-[16px] max-w-[480px] font-medium leading-[1.5] text-[#ffffffbf]">
+                      The story of taking a product with no customers, and landing a customer at £1m
+                      ARR that led to us being acquired.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+            <Link href="/case-studies/union-roasted" className="flex flex-col gap-2">
+              <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
+                <AnimatedGradientBackground
+                  preset="rachelChen"
+                  animationDuration={50}
+                  blurAmount={50}
+                  opacity={1}
+                  grain={true}
+                  grainOpacity={0.015}
+                  dither={true}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    minHeight: "100%",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                  }}
+                />
+                <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
+                  <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
+                    Public
+                  </p>
+                  <div className="relative flex flex-col items-center justify-center text-center">
+                    <div className="h-10 flex items-end justify-center mb-2">
+                      <img
+                        src="/images/logos/union-logo.png"
+                        alt="Union Roasted logo"
+                        className="max-w-[80px]"
+                      />
+                    </div>
+                    <p className="font-ppmondwest text-[40px] leading-[1.5] text-[#fff]">
+                      Union Roasted
+                    </p>
+                    <p className="text-[16px] max-w-[320px] font-medium leading-[1.5] text-[#ffffffbf]">
+                      The story of how I designed a site for one of the largest UK coffee brands
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+            <Link href="/case-studies/acquia-unification" className="flex flex-col gap-2">
+              <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
+                <AnimatedGradientBackground
+                  preset="tropical"
+                  animationDuration={50}
+                  blurAmount={50}
+                  opacity={1}
+                  grain={true}
+                  grainOpacity={0.015}
+                  dither={true}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    minHeight: "100%",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                  }}
+                />
+                <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
+                  <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
+                    Password Protected
+                  </p>
+                  <div className="relative flex flex-col items-center justify-center text-center">
+                    <div className="h-10 flex items-end justify-center mb-2">
+                      <img
+                        src="/images/logos/acquia-logo.svg"
+                        alt="Acquia logo"
+                        className="max-w-[80px]"
+                      />
+                    </div>
+                    <p className="font-ppmondwest text-[40px] leading-[1.5] text-[#fff]">
+                      Acquia Unification
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+            <Link href="/case-studies/acquia-ai" className="flex flex-col gap-2">
+              <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
+                <AnimatedGradientBackground
+                  preset="fire"
+                  animationDuration={50}
+                  blurAmount={50}
+                  opacity={1}
+                  grain={true}
+                  grainOpacity={0.015}
+                  dither={true}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    minHeight: "100%",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                  }}
+                />
+                <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
+                  <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
+                    Password Protected
+                  </p>
+                  <div className="relative flex flex-col items-center justify-center text-center">
+                    <div className="h-10 flex items-end justify-center mb-2">
+                      <img
+                        src="/images/logos/acquia-logo.svg"
+                        alt="Acquia logo"
+                        className="max-w-[80px]"
+                      />
+                    </div>
+                    <p className="font-ppmondwest text-[40px] leading-[1.5] text-[#fff]">
+                      Acquia AI
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+      </FadeInUp>
 
       {/* Side projects section */}
       <FadeInUp>

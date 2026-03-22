@@ -90,8 +90,8 @@ export default function CaseStudyTableOfContents({ sections = [] }) {
         right: 0,
         zIndex: 50,
         height: 80,
-        background: "linear-gradient(to top, rgba(245,245,245,1) 0%, rgba(245,245,245,0) 100%)",
-        backdropFilter: "blur(8px)",
+        background: "rgba(0, 0, 0, 0.2)",
+        backdropFilter: "blur(24px)",
       }}
     >
       {/* Centering wrapper */}
@@ -117,7 +117,14 @@ export default function CaseStudyTableOfContents({ sections = [] }) {
             whileDrag={{ cursor: "grabbing" }}
           >
             {/* Labels row */}
-            <div style={{ position: "relative", height: LABEL_H, marginBottom: 6 }}>
+            <div
+              style={{
+                position: "relative",
+                height: LABEL_H,
+                marginBottom: 6,
+                mixBlendMode: "difference",
+              }}
+            >
               {ticks.map((tick, i) => {
                 if (tick.type !== "section") return null;
                 const { label, id } = items[tick.sectionIndex];
@@ -140,7 +147,12 @@ export default function CaseStudyTableOfContents({ sections = [] }) {
                       fontFamily: "var(--font-satoshi), Satoshi, sans-serif",
                       fontWeight: isActive ? 600 : 500,
                       lineHeight: 1,
-                      color: isActive || isHovered ? "#2a2a2a" : filled[i] ? "#888" : "#c9c9c9",
+                      color:
+                        isActive || isHovered
+                          ? "#fff"
+                          : filled[i]
+                            ? "#fff"
+                            : "rgba(255, 255, 255, 0.7)",
                       background: "none",
                       border: "none",
                       padding: "0 4px",
@@ -170,11 +182,11 @@ export default function CaseStudyTableOfContents({ sections = [] }) {
                 const height = isTall ? TICK_H : Math.round(TICK_H / 2);
                 const color = filled[i]
                   ? isTall
-                    ? "#656565"
-                    : "#FF4006"
+                    ? "#fff"
+                    : "#fff"
                   : isTall
-                    ? "#d0d0d0"
-                    : "#e5e5e5";
+                    ? "rgba(229, 229, 229, 0.2)"
+                    : "rgba(229, 229, 229, 0.2)";
 
                 const line = (
                   <div

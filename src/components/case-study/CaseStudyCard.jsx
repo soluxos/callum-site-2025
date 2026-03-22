@@ -6,8 +6,15 @@
  *  - image: string — src for the card image
  *  - imageAlt: string
  *  - children: text / any content placed in the bottom text area
+ *  - objectFit: "contain" | "cover" (default "contain")
  */
-export default function CaseStudyCard({ width = "full", image, imageAlt = "", children }) {
+export default function CaseStudyCard({
+  width = "full",
+  image,
+  imageAlt = "",
+  children,
+  objectFit = "contain",
+}) {
   const isHalf = width === "half";
 
   return (
@@ -23,7 +30,7 @@ export default function CaseStudyCard({ width = "full", image, imageAlt = "", ch
       {/* Image fills remaining space above the text strip */}
       {image && (
         <div className="flex-1 min-h-0 w-full overflow-hidden">
-          <img src={image} alt={imageAlt} className="h-full w-full object-contain" />
+          <img src={image} alt={imageAlt} className={`h-full w-full object-${objectFit}`} />
         </div>
       )}
 
