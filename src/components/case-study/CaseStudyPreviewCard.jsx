@@ -1,7 +1,15 @@
 import Link from "next/link";
 import AnimatedGradientBackground from "@/components/AnimatedGradientBackground/AnimatedGradientBackground";
 
-export default function CaseStudyPreviewCard({ href, preset, title, description, logo, logoAlt = "", badge }) {
+export default function CaseStudyPreviewCard({
+  href,
+  preset,
+  title,
+  description,
+  logo,
+  logoAlt = "",
+  badge,
+}) {
   return (
     <Link href={href} className="flex flex-col gap-2">
       <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] bg-[#929292]">

@@ -89,9 +89,10 @@ export default function CaseStudyTableOfContents({ sections = [] }) {
         left: 0,
         right: 0,
         zIndex: 50,
-        height: 80,
-        background: "rgba(0, 0, 0, 0.2)",
-        backdropFilter: "blur(24px)",
+        height: 64,
+        background: "#f5f5f5",
+        borderTop: "solid 1px #dfdfdf",
+        backdropFilter: "blur(8px)",
       }}
     >
       {/* Centering wrapper */}
@@ -112,19 +113,11 @@ export default function CaseStudyTableOfContents({ sections = [] }) {
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
-              paddingBottom: 12,
             }}
             whileDrag={{ cursor: "grabbing" }}
           >
             {/* Labels row */}
-            <div
-              style={{
-                position: "relative",
-                height: LABEL_H,
-                marginBottom: 6,
-                mixBlendMode: "difference",
-              }}
-            >
+            <div style={{ position: "relative", height: LABEL_H, marginBottom: 6 }}>
               {ticks.map((tick, i) => {
                 if (tick.type !== "section") return null;
                 const { label, id } = items[tick.sectionIndex];
@@ -147,12 +140,7 @@ export default function CaseStudyTableOfContents({ sections = [] }) {
                       fontFamily: "var(--font-satoshi), Satoshi, sans-serif",
                       fontWeight: isActive ? 600 : 500,
                       lineHeight: 1,
-                      color:
-                        isActive || isHovered
-                          ? "#fff"
-                          : filled[i]
-                            ? "#fff"
-                            : "rgba(255, 255, 255, 0.7)",
+                      color: isActive || isHovered ? "#2a2a2a" : filled[i] ? "#888" : "#888",
                       background: "none",
                       border: "none",
                       padding: "0 4px",
@@ -180,13 +168,7 @@ export default function CaseStudyTableOfContents({ sections = [] }) {
               {ticks.map((tick, i) => {
                 const isTall = tick.type === "section";
                 const height = isTall ? TICK_H : Math.round(TICK_H / 2);
-                const color = filled[i]
-                  ? isTall
-                    ? "#fff"
-                    : "#fff"
-                  : isTall
-                    ? "rgba(229, 229, 229, 0.2)"
-                    : "rgba(229, 229, 229, 0.2)";
+                const color = filled[i] ? "#656565" : "#d0d0d0";
 
                 const line = (
                   <div

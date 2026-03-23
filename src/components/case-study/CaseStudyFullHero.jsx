@@ -62,7 +62,7 @@ export default function CaseStudyFullHero({
 }) {
   return (
     // margin-top: -60px pulls the hero up behind the nav (pt-8 ≈ 32px + nav ≈ 28px)
-    <div className="relative h-[600px] sm:h-[900px]" style={{ marginTop: "-60px" }}>
+    <div className="relative h-[600px] sm:h-[800px]" style={{ marginTop: "-60px" }}>
       {/* Absolutely-positioned background breaks out of the container's horizontal margins
           to cover the full viewport width without causing a horizontal scrollbar */}
       <div
