@@ -8,6 +8,7 @@ export const CASE_STUDIES = [
     logo: "/images/logos/acquia-logo.svg",
     logoAlt: "Acquia logo",
     badge: "Public",
+    className: "md:col-span-2",
   },
   {
     slug: "site-studio-cohesion",
@@ -25,7 +26,8 @@ export const CASE_STUDIES = [
     href: "/case-studies/union-roasted",
     preset: "rachelChen",
     title: "Union Roasted",
-    description: "The story of how I designed a site for one of the largest UK coffee brands",
+    description:
+      "The story of how I designed a stunning new website for one of the largest UK coffee brands",
     logo: "/images/logos/union-logo.png",
     logoAlt: "Union Roasted logo",
     badge: "Public",

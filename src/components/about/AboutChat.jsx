@@ -32,7 +32,7 @@ function LeftTail() {
       viewBox="0 0 10 6"
       fill="none"
     >
-      <path d="M0 0L10 0L0 6Z" fill="#ededed" />
+      <path d="M0 0L10 0L0 6Z" fill="#DDDDDD" />
     </svg>
   );
 }
@@ -145,7 +145,7 @@ export default function AboutChat() {
         }
       `}</style>
 
-      <div className="flex flex-col gap-5 max-w-[710px]">
+      <div className="flex flex-col gap-5 max-w-[710px] bg-[#ededed] rounded-[12px] p-5">
         {!isDone && (
           <button
             onClick={skipAll}
@@ -172,7 +172,7 @@ export default function AboutChat() {
             >
               {isLeft ? (
                 <div className="flex flex-col items-start">
-                  <div className="relative bg-[#ededed] rounded-[8px] px-4 py-2 max-w-[467px]">
+                  <div className="relative bg-[#DDDDDD] rounded-[8px] px-4 py-2 max-w-[467px]">
                     <TypedText
                       text={msg.text}
                       typedLen={typed}

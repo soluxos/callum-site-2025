@@ -164,7 +164,7 @@ export default function IdeasCanvasPreview({
         <div
           ref={containerRef}
           className="relative w-full h-[400px] md:h-[540px] rounded-xl overflow-hidden cursor-pointer"
-          style={{ background: "#ebebeb" }}
+          style={{ background: "#ededed" }}
         >
           {/* Notes layer — pointer-events: none so all clicks reach the Link */}
           <div

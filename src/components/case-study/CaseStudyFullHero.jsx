@@ -1,56 +1,7 @@
 "use client";
 
 import AnimatedGradientBackground from "@/components/AnimatedGradientBackground/AnimatedGradientBackground";
-import { motion } from "motion/react";
-
-// Pre-compute a 40-step sine-curve bell for silky-smooth glow interpolation.
-// "linear" easing between many tiny steps avoids the visible stepped transitions
-// that occur when Framer Motion interpolates between just a few keyframes.
-const STEPS = 40;
-const _sine = Array.from({ length: STEPS + 1 }, (_, i) => Math.sin((i / STEPS) * Math.PI));
-const _times = _sine.map((_, i) => i / STEPS);
-
-const _shadowFrames = _sine.map(
-  s =>
-    `0 0 ${(4 * s).toFixed(2)}px oklch(100% 0 0 / ${(s * 100).toFixed(1)}%),` +
-    `0 0 ${(8 * s).toFixed(2)}px oklch(100% 0 0 / ${(s * 80).toFixed(1)}%),` +
-    `0 0 ${(20 * s).toFixed(2)}px oklch(100% 0 0 / ${(s * 60).toFixed(1)}%),` +
-    `0 0 ${(40 * s).toFixed(2)}px oklch(100% 0 0 / ${(s * 40).toFixed(1)}%),` +
-    `0 0 ${(80 * s).toFixed(2)}px oklch(100% 0 0 / ${(s * 20).toFixed(1)}%)`
-);
-
-// Opacity fades in over the first ~15 % of the animation then stays at 1
-const _opacityFrames = _sine.map((_, i) => Math.min(1, (i / (STEPS * 0.15)) * 1));
-// Subtle upward drift resolves in the same window
-const _yFrames = _sine.map((_, i) => Math.max(0, 6 * (1 - i / (STEPS * 0.15))));
-
-function GlowTitle({ text }) {
-  const chars = text.split("");
-  return (
-    <h1 className="font-ppmondwest text-[40px] sm:text-[64px] leading-[1.2] text-white">
-      {chars.map((char, i) => (
-        <motion.span
-          key={i}
-          style={{ display: "inline-block", whiteSpace: char === " " ? "pre" : "normal" }}
-          initial={{ textShadow: _shadowFrames[0], opacity: 0, y: 6 }}
-          animate={{
-            textShadow: _shadowFrames,
-            opacity: _opacityFrames,
-            y: _yFrames,
-          }}
-          transition={{
-            duration: 2,
-            delay: i * 0.05,
-            ease: "linear",
-            times: _times,
-          }}
-        >
-          {char}
-        </motion.span>
-      ))}
-    </h1>
-  );
-}
+import GlowTitle from "@/components/GlowTitle/GlowTitle";
 
 export default function CaseStudyFullHero({
   title,
@@ -97,7 +48,10 @@ export default function CaseStudyFullHero({
               <img src={logo} alt={logoAlt} className="max-w-[80px]" />
             </div>
           )}
-          <GlowTitle text={title} />
+          <GlowTitle
+            text={title}
+            className="font-ppmondwest text-[40px] sm:text-[64px] leading-[1.2] text-white"
+          />
           {description && (
             <p className="text-[16px] max-w-[480px] font-medium leading-[1.5] text-white/80">
               {description}
