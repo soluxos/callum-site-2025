@@ -25,30 +25,40 @@ const BALL_COLOURS = [
 ];
 
 const DESIGN_SKILLS = [
+  "UI design",
+  "UX design",
+  "Design systems",
   "Figma",
-  "Design Systems",
+  "Atomic design",
   "Prototyping",
-  "User Research",
   "Wireframing",
-  "Typography",
-  "Interaction Design",
-  "Visual Design",
-  "UX Writing",
-  "Accessibility",
-  "Motion Design",
+  "User flows",
+  "User testing",
+  "User research",
+  "Competitor analysis",
+  "AI product design",
+  "Conversational UI",
+  "Prompt UI design",
+  "Human AI interaction",
 ];
 
 const ENGINEERING_SKILLS = [
   "React",
+  "JavaScript",
+  "HTML",
+  "CSS",
+  "Sass/SCSS",
+  "GraphQL",
+  "Styled components",
   "TypeScript",
   "Next.js",
   "Tailwind CSS",
   "Node.js",
-  "WebGL",
+  "Webpack",
   "Three.js",
   "PHP",
   "WordPress",
-  "REST APIs",
+  "Drupal",
   "Git",
 ];
 
@@ -123,9 +133,9 @@ export default function SkillBadges() {
         const x = INNER_PAD + w / 2 + Math.random() * Math.max(1, W - w - INNER_PAD * 2);
         const y = -(i * (h + 10) + h);
         const body = Bodies.rectangle(x, y, w, h, {
-          restitution: 0.3,
+          restitution: 0.1,
           friction: 0.6,
-          frictionAir: 0.03,
+          frictionAir: 0.08,
           chamfer: { radius: chamferRadius },
         });
         body._w = w;
@@ -151,14 +161,38 @@ export default function SkillBadges() {
         const x = INNER_PAD + r + col * ballDiam + hexOffset;
         const y = -(H + r + row * ballDiam);
         const body = Bodies.circle(x, y, r, {
-          restitution: 0.45,
+          restitution: 0.2,
           friction: 0.3,
-          frictionAir: 0.01,
+          frictionAir: 0.04,
           density: 0.002,
         });
         body._r = r;
         body._isBall = true;
         return body;
+      });
+
+      // Interleave design badges, engineering badges, and balls so all three types
+      // fall together rather than arriving in separate groups.
+      // Pattern: designBadge → engBadge → ~18 balls → repeat
+      const designBodies = badgeBodies.slice(0, DESIGN_SKILLS.length);
+      const engBodies = badgeBodies.slice(DESIGN_SKILLS.length);
+      const ballsPerSlot = Math.floor(ballBodies.length / badgeBodies.length);
+      const spawnOrder = [];
+      let bIdx = 0;
+      const slots = Math.max(designBodies.length, engBodies.length);
+      for (let s = 0; s < slots; s++) {
+        if (s < designBodies.length) spawnOrder.push(designBodies[s]);
+        if (s < engBodies.length) spawnOrder.push(engBodies[s]);
+        const take = s === slots - 1 ? ballBodies.length - bIdx : ballsPerSlot;
+        for (let b = 0; b < take && bIdx < ballBodies.length; b++) {
+          spawnOrder.push(ballBodies[bIdx++]);
+        }
+      }
+      // Re-assign y positions in interleaved order, keeping each body's x intact
+      const SPAWN_STEP = 4;
+      const SPAWN_BASE = 30;
+      spawnOrder.forEach((body, i) => {
+        Body.setPosition(body, { x: body.position.x, y: -(SPAWN_BASE + i * SPAWN_STEP) });
       });
 
       // Static boundaries
@@ -177,9 +211,19 @@ export default function SkillBadges() {
       const allBodies = [...badgeBodies, ...ballBodies];
 
       const mouse = Mouse.create(container);
+      // Remove Matter.js wheel listeners — they call preventDefault and block page scroll.
+      // Cover all event names used across different browser/Matter versions.
+      mouse.element.removeEventListener("mousewheel", mouse.mousewheel);
+      mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
+      mouse.element.removeEventListener("wheel", mouse.mousewheel);
       const mc = MouseConstraint.create(engine, {
         mouse,
-        constraint: { stiffness: 0.15, angularStiffness: 0.05, render: { visible: false } },
+        constraint: {
+          stiffness: 0.05,
+          damping: 0.3,
+          angularStiffness: 0.1,
+          render: { visible: false },
+        },
       });
       World.add(engine.world, mc);
 

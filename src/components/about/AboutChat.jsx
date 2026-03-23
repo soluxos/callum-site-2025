@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 
-const CHAR_MS = 28; // ms per character typed
-const PAUSE_AFTER_MS = 600; // pause after a message finishes before next appears
+const CHAR_MS = 28;
+const PAUSE_AFTER_MS = 900;
+const DOTS_MS_PER_CHAR = 40;
+const DOTS_MIN_MS = 1800;
+const DOTS_MAX_MS = 4500;
 
-// Message definitions — side: "left" | "right", text is what gets typed out.
-// For the photo message, text is the caption; photos always appear instantly with the bubble.
 const MESSAGES = [
   { side: "left", text: "Hey Callum, what're you up to?" },
   {
@@ -23,6 +24,10 @@ const MESSAGES = [
   },
 ];
 
+function dotsDelay(text) {
+  return Math.min(DOTS_MAX_MS, Math.max(DOTS_MIN_MS, text.length * DOTS_MS_PER_CHAR));
+}
+
 function LeftTail() {
   return (
     <svg
@@ -37,7 +42,7 @@ function LeftTail() {
   );
 }
 
-function RightTail({ color = "#0090ff" }) {
+function RightTail() {
   return (
     <svg
       className="absolute -bottom-[6px] right-[16px]"
@@ -46,12 +51,26 @@ function RightTail({ color = "#0090ff" }) {
       viewBox="0 0 10 6"
       fill="none"
     >
-      <path d="M10 0L0 0L10 6Z" fill={color} />
+      <path d="M10 0L0 0L10 6Z" fill="#0090ff" />
     </svg>
   );
 }
 
-// Renders text with \n\n as paragraph breaks
+function TypingDots() {
+  return (
+    <div className="flex gap-[5px] items-center px-1 py-[3px]">
+      {[0, 1, 2].map(i => (
+        <motion.span
+          key={i}
+          className="block w-[7px] h-[7px] rounded-full bg-[#aaaaaa]"
+          animate={{ y: [0, -3, 0] }}
+          transition={{ duration: 0.55, repeat: Infinity, delay: i * 0.15, ease: "easeInOut" }}
+        />
+      ))}
+    </div>
+  );
+}
+
 function TypedText({ text, typedLen, isTyping, textClass }) {
   const displayed = text.slice(0, typedLen);
   const parts = displayed.split("\n\n");
@@ -71,60 +90,117 @@ function TypedText({ text, typedLen, isTyping, textClass }) {
   );
 }
 
+function FullText({ text, textClass }) {
+  const parts = text.split("\n\n");
+  return (
+    <>
+      {parts.map((part, i) => (
+        <p
+          key={i}
+          className={textClass}
+          style={{ margin: 0, marginBottom: i < parts.length - 1 ? 14 : 0 }}
+        >
+          {part}
+        </p>
+      ))}
+    </>
+  );
+}
+
 export default function AboutChat() {
-  // visibleCount = how many bubbles are mounted in the DOM
-  const [visibleCount, setVisibleCount] = useState(0);
-  // typedLengths[i] = how many chars of message i have been typed
-  const [typedLengths, setTypedLengths] = useState(Array(MESSAGES.length).fill(0));
+  // "hidden" | "dots" (left) | "typing" (right) | "visible"
+  const [msgStates, setMsgStates] = useState(MESSAGES.map(() => "hidden"));
+  const [typedLengths, setTypedLengths] = useState(MESSAGES.map(() => 0));
+  const scrollRef = useRef(null);
   const timerRef = useRef(null);
+  const activeIdxRef = useRef(-1);
+  // Track whether user has manually scrolled up
+  const userScrolledRef = useRef(false);
+  // Prevent programmatic scrolls from flipping userScrolledRef
+  const isProgrammaticScrollRef = useRef(false);
 
   function clearTimer() {
     if (timerRef.current) clearTimeout(timerRef.current);
   }
 
-  function skipAll() {
-    clearTimer();
-    setVisibleCount(MESSAGES.length);
-    setTypedLengths(MESSAGES.map(m => m.text.length));
-  }
-
-  const isDone =
-    visibleCount >= MESSAGES.length &&
-    typedLengths[MESSAGES.length - 1] >= MESSAGES[MESSAGES.length - 1].text.length;
-
+  // Scroll to bottom unless the user has scrolled up
   useEffect(() => {
-    // Kick off: show the first bubble after a short initial delay
-    timerRef.current = setTimeout(() => setVisibleCount(1), 300);
+    const el = scrollRef.current;
+    if (!el || userScrolledRef.current) return;
+    isProgrammaticScrollRef.current = true;
+    el.scrollTop = el.scrollHeight;
+    // Reset the lock after the scroll event has fired
+    requestAnimationFrame(() => {
+      isProgrammaticScrollRef.current = false;
+    });
+  }, [msgStates, typedLengths]);
+
+  // Kick off first message
+  useEffect(() => {
+    timerRef.current = setTimeout(() => {
+      activeIdxRef.current = 0;
+      setMsgStates(prev => {
+        const n = [...prev];
+        n[0] = MESSAGES[0].side === "left" ? "dots" : "typing";
+        return n;
+      });
+    }, 300);
     return clearTimer;
   }, []);
 
+  // State machine
   useEffect(() => {
-    if (visibleCount === 0) return;
-    const idx = visibleCount - 1; // index of the currently-typing bubble
+    const idx = activeIdxRef.current;
+    if (idx < 0 || idx >= MESSAGES.length) return;
     const msg = MESSAGES[idx];
+    const state = msgStates[idx];
     const typed = typedLengths[idx];
 
     clearTimer();
 
-    if (typed < msg.text.length) {
-      // Keep typing current message
+    if (state === "dots") {
       timerRef.current = setTimeout(() => {
-        setTypedLengths(prev => {
-          const next = [...prev];
-          next[idx] = prev[idx] + 1;
-          return next;
+        setMsgStates(prev => {
+          const n = [...prev];
+          n[idx] = "visible";
+          return n;
         });
-      }, CHAR_MS);
-    } else if (idx < MESSAGES.length - 1) {
-      // Current message finished — pause then reveal next bubble
+        setTypedLengths(prev => {
+          const n = [...prev];
+          n[idx] = msg.text.length;
+          return n;
+        });
+      }, dotsDelay(msg.text));
+    } else if (state === "typing") {
+      if (typed < msg.text.length) {
+        timerRef.current = setTimeout(() => {
+          setTypedLengths(prev => {
+            const n = [...prev];
+            n[idx] = prev[idx] + 1;
+            return n;
+          });
+        }, CHAR_MS);
+      } else {
+        setMsgStates(prev => {
+          const n = [...prev];
+          n[idx] = "visible";
+          return n;
+        });
+      }
+    } else if (state === "visible" && idx < MESSAGES.length - 1) {
       timerRef.current = setTimeout(() => {
-        setVisibleCount(c => c + 1);
+        const nextIdx = idx + 1;
+        activeIdxRef.current = nextIdx;
+        setMsgStates(prev => {
+          const n = [...prev];
+          n[nextIdx] = MESSAGES[nextIdx].side === "left" ? "dots" : "typing";
+          return n;
+        });
       }, PAUSE_AFTER_MS);
     }
 
     return clearTimer;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visibleCount, typedLengths]);
+  }, [msgStates, typedLengths]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
@@ -143,87 +219,100 @@ export default function AboutChat() {
           opacity: 0.7;
           animation: about-cursor-blink 530ms step-start infinite;
         }
+        .about-chat-scroll::-webkit-scrollbar { display: none; }
+        .about-chat-scroll { scrollbar-width: none; -ms-overflow-style: none; }
       `}</style>
 
-      <div className="flex flex-col gap-5 max-w-[710px] bg-[#ededed] rounded-[12px] p-5">
-        {!isDone && (
-          <button
-            onClick={skipAll}
-            className="self-start font-satoshi text-[12px] font-medium text-[#b0b0b0] hover:text-[#656565] transition-colors cursor-pointer bg-none border-none p-0 underline underline-offset-2"
-          >
-            Skip (the layout shift is really annoying)
-          </button>
-        )}
-        {MESSAGES.slice(0, visibleCount).map((msg, idx) => {
-          const typed = typedLengths[idx];
-          const isTyping = typed < msg.text.length;
-          const isLeft = msg.side === "left";
+      <div
+        className="flex flex-col max-w-[710px] bg-[#ededed] rounded-[12px] overflow-hidden"
+        style={{ height: 520 }}
+      >
+        {/* Scrollable messages — mt-auto pushes content to bottom when short */}
+        <div
+          ref={scrollRef}
+          className="about-chat-scroll flex-1 overflow-y-auto flex flex-col px-5 py-4"
+          onScroll={e => {
+            if (isProgrammaticScrollRef.current) return;
+            const el = e.currentTarget;
+            const atBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 40;
+            userScrolledRef.current = !atBottom;
+          }}
+        >
+          <div className="mt-auto flex flex-col gap-4">
+            {MESSAGES.map((msg, idx) => {
+              const state = msgStates[idx];
+              if (state === "hidden") return null;
+              const typed = typedLengths[idx];
+              const isLeft = msg.side === "left";
 
-          return (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 10, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{
-                opacity: { duration: 0.18 },
-                scale: { type: "spring", stiffness: 400, damping: 24, mass: 0.8 },
-                y: { type: "spring", stiffness: 400, damping: 24, mass: 0.8 },
-              }}
-            >
-              {isLeft ? (
-                <div className="flex flex-col items-start">
-                  <div className="relative bg-[#DDDDDD] rounded-[8px] px-4 py-2 max-w-[467px]">
-                    <TypedText
-                      text={msg.text}
-                      typedLen={typed}
-                      isTyping={isTyping}
-                      textClass="font-satoshi text-[14px] font-medium leading-[1.25] text-[#656565]"
-                    />
-                    <LeftTail />
-                  </div>
-                </div>
-              ) : (
-                <div className="flex justify-end">
-                  <div className="flex flex-col gap-2 items-end">
-                    {msg.hasPhotos && (
-                      <div className="max-w-[467px] grid grid-cols-2 gap-0 pt-[10px]">
-                        <img
-                          src="/images/random/37.jpg"
-                          alt="Photo 1"
-                          className="object-cover h-[120px] w-full rounded-tl-lg"
-                        />
-                        <img
-                          src="/images/about/image-2.jpg"
-                          alt="Photo 2"
-                          className="object-cover h-[120px] w-full rounded-tr-lg"
-                        />
-                        <img
-                          src="/images/random/2.jpg"
-                          alt="Photo 3"
-                          className="object-cover h-[120px] w-full rounded-bl-lg"
-                        />
-                        <img
-                          src="/images/random/26.jpg"
-                          alt="Photo 4"
-                          className="object-cover h-[120px] w-full rounded-br-lg"
-                        />
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ type: "spring", stiffness: 340, damping: 28, mass: 0.9 }}
+                >
+                  {isLeft ? (
+                    <div className="flex flex-col items-start">
+                      <div className="relative bg-[#DDDDDD] rounded-[8px] px-4 py-2 max-w-[467px]">
+                        {state === "dots" ? (
+                          <TypingDots />
+                        ) : (
+                          <FullText
+                            text={msg.text}
+                            textClass="font-satoshi text-[14px] font-medium leading-[1.25] text-[#656565]"
+                          />
+                        )}
+                        <LeftTail />
                       </div>
-                    )}
-                    <div className="relative bg-[#0090ff] rounded-[8px] px-4 py-2 max-w-[467px] self-end">
-                      <TypedText
-                        text={msg.text}
-                        typedLen={typed}
-                        isTyping={isTyping}
-                        textClass="font-satoshi text-[14px] font-medium leading-[1.25] text-white"
-                      />
-                      <RightTail />
                     </div>
-                  </div>
-                </div>
-              )}
-            </motion.div>
-          );
-        })}
+                  ) : (
+                    <div className="flex justify-end">
+                      <div className="flex flex-col gap-2 items-end max-w-[467px]">
+                        {msg.hasPhotos && (
+                          <div className="grid grid-cols-2 gap-0 pt-[10px] w-full">
+                            <img
+                              src="/images/random/37.jpg"
+                              alt="Photo 1"
+                              className="object-cover h-[120px] w-full rounded-tl-lg"
+                            />
+                            <img
+                              src="/images/about/image-2.jpg"
+                              alt="Photo 2"
+                              className="object-cover h-[120px] w-full rounded-tr-lg"
+                            />
+                            <img
+                              src="/images/random/2.jpg"
+                              alt="Photo 3"
+                              className="object-cover h-[120px] w-full rounded-bl-lg"
+                            />
+                            <img
+                              src="/images/random/26.jpg"
+                              alt="Photo 4"
+                              className="object-cover h-[120px] w-full rounded-br-lg"
+                            />
+                          </div>
+                        )}
+                        <div
+                          className="relative rounded-[8px] px-4 py-2 self-end"
+                          style={{ background: "#0090ff" }}
+                        >
+                          <TypedText
+                            text={msg.text}
+                            typedLen={typed}
+                            isTyping={state === "typing"}
+                            textClass="font-satoshi text-[14px] font-medium leading-[1.25] text-white"
+                          />
+                          <RightTail />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </>
   );
