@@ -22,7 +22,7 @@ export default function DrupalCanvasCaseStudy() {
   const metaItems = [
     {
       label: "Role",
-      value: "Head of Training",
+      value: "Senior Frontend Designer",
     },
     {
       label: "Outcome",
@@ -78,8 +78,8 @@ export default function DrupalCanvasCaseStudy() {
           <FadeInUp>
             <CaseStudySection title="The problem">
               <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-                I joined Site Studio, formerly known as Cohesion, with a new title: Head of
-                Training. The problem I was hired to solve was simple on the surface, teach
+                I joined Site Studio, formerly known as Cohesion, with a new title: Senior Frontend
+                Designer. The problem I was hired to solve was simple on the surface, teach
                 individuals and entire companies how to build websites with our product.
               </p>
               <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
@@ -206,9 +206,9 @@ export default function DrupalCanvasCaseStudy() {
                   biggest companies in the world. No two days were the same.
                 </p>
                 <p>
-                  As much as my title was Head of Training, the role demanded far more than that. I
-                  was a designer, teaching companies how to build proper design systems. I was a
-                  developer, demonstrating front-end best practices. And I was a salesperson,
+                  As much as my title was Senior Frontend Designer, the role demanded far more than
+                  that. I was a designer, teaching companies how to build proper design systems. I
+                  was a developer, demonstrating front-end best practices. And I was a salesperson,
                   pitching a product I genuinely believed in to customers who needed it. It remains
                   one of the most rewarding periods of my career.
                 </p>

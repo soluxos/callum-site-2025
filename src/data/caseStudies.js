@@ -12,7 +12,7 @@ export const CASE_STUDIES = [
   {
     slug: "site-studio-cohesion",
     href: "/case-studies/site-studio-cohesion",
-    preset: "peach",
+    preset: "forest",
     title: "Site Studio / Cohesion",
     description:
       "The story of taking a product with no customers, and landing a customer at £1m ARR that led to us being acquired.",

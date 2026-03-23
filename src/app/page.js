@@ -1,11 +1,6 @@
-import DitherBackground from "@/components/DitherBackground/DitherBackground";
-import ImageSlideshow from "@/components/ImageSlideshow/ImageSlideshow";
-import Image from "next/image";
-import Link from "next/link";
-import ImageMarquee from "@/components/ImageMarquee/ImageMarquee";
 import HeroBubbles from "@/components/HeroBubbles/HeroBubbles";
 import FadeInUp from "@/components/FadeInUp/FadeInUp";
-import HomeStickyNotes from "@/components/HomeStickyNotes/HomeStickyNotes";
+import IdeasCanvasPreview from "@/components/IdeasCanvasPreview/IdeasCanvasPreview";
 import CaseStudyPreviewCard from "@/components/case-study/CaseStudyPreviewCard";
 import { CASE_STUDIES } from "@/data/caseStudies";
 
@@ -127,7 +122,7 @@ export default function Home() {
 
       {/* Notes section */}
       <FadeInUp>
-        <HomeStickyNotes />
+        <IdeasCanvasPreview />
       </FadeInUp>
     </main>
   );
