@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex flex-col justify-between gap-10 lg:flex-row">
         <div className="flex flex-1 flex-col gap-10 md:flex-row">
           <div className="w-[223px] flex flex-col">
-            <p className="font-ppmondwest text-[20px] leading-none">Side proejcts</p>
+            <p className="font-ppmondwest text-[20px] leading-none">Side projects</p>
             <div className="mt-5 space-y-[14px] text-[14px] font-medium leading-[1.5] text-[#929292] flex flex-col gap-3">
               <Link
                 href="https://yournexttale.com"

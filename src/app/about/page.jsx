@@ -1,45 +1,49 @@
 import Image from "next/image";
 import FadeInUp from "@/components/FadeInUp/FadeInUp";
 import AboutChat from "@/components/about/AboutChat";
+import SkillBadges from "@/components/SkillBadges/SkillBadges";
 
 export default function About() {
   return (
     <main className="flex flex-col gap-[120px]">
       <FadeInUp>
         <section className="flex flex-col gap-10">
-          {/* <h1 className="font-ppmondwest text-[48px] leading-[1.25]">About</h1> */}
+          <div className="w-full md:w-[588px] flex flex-col gap-5">
+            <h1 className="font-ppmondwest text-[24px] leading-[1.25]">About me</h1>
+            <AboutChat />
+          </div>
+        </section>
+      </FadeInUp>
 
+      <FadeInUp>
+        <section className="flex flex-col gap-10">
           <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
-            {/* Chat column — sticky so it stays in view while scrolling experience */}
-            <div className="w-full md:w-[588px] md:shrink-0">
-              <AboutChat />
-            </div>
             {/* Experience column */}
-            <div className="w-full md:w-[588px] md:shrink-0 flex flex-col gap-10">
+            <div className="w-full md:w-[588px] md:shrink-0 flex flex-col gap-5">
               <h2 className="font-ppmondwest text-[24px] leading-[1.25]">Experience</h2>
               <div className="flex flex-col gap-10">
                 <div className="flex flex-col gap-2">
-                  <p className="font-ppmondwest text-[24px] leading-[1.25]">
+                  <p className="font-ppmondwest text-[20px] leading-[1.25]">
                     Lead Product Designer
                   </p>
                   <p className="font-ppmondwest text-[16px] leading-[1.25] text-[#929292]">
                     Acquia /1 year, 3 Months
                   </p>
                   <div className="text-[14px] font-medium leading-[1.5] text-[#929292]">
-                    I&apos;m currently leading two design projects at Acquia. One is to do with AI,
-                    the other is about the unification of Acquia&apos;s products. Before these
-                    projects I was leading the design of Drupal Canvas, the largest Drupal
-                    initiative in years.
+                    Leading design across two of Acquia's most ambitious initiatives: an AI-powered
+                    product experience and a full unification of Acquia's product suite. Before
+                    these, I led the design of Drupal Canvas, the largest Drupal initiative in
+                    years.
                     <br />
                     <br />
-                    In my current role I&apos;m having to understand every single part of our
-                    products, and design solutions that work across them all. On top of being an IC,
-                    I&apos;m also having to train and mentor other designers to ensure cohesion
-                    between all of our products.
+                    This role demands a systems-level perspective. I work across every product in
+                    the portfolio, designing solutions that hold together at scale while staying
+                    coherent for the people using them. Alongside my IC work, I mentor and train
+                    designers across teams, setting the bar for quality and consistency.
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <p className="font-ppmondwest text-[24px] leading-[1.25]">
+                  <p className="font-ppmondwest text-[20px] leading-[1.25]">
                     Senior Software Engineer
                   </p>
                   <p className="font-ppmondwest text-[16px] leading-[1.25] text-[#929292]">
@@ -47,30 +51,24 @@ export default function About() {
                   </p>
                   <div className="text-[14px] font-medium leading-[1.5] text-[#929292]">
                     <p className="mb-0">
-                      As a Senior Software Engineer, I primarily worked with React. I was one of the
-                      two engineers that built the frontend of Site Studio, a product with $50m ARR.
-                      This included building a front-end visual building and editing interface to
-                      facilitate content editors and site builders alike.
+                      One of two engineers who built the entire frontend of Site Studio, a product
+                      that grew to $50m ARR. The core of the work was a visual building and editing
+                      interface for content editors and site builders -- complex, stateful,
+                      interaction-heavy UI built in React.
                       <br />
                       <br />
-                      Prior to being a Senior Software Engineer, I was actually the Head of Training
-                      for Site Studio. In this role I was responsible for training customers on how
-                      to use the product, how to design websites, and how to build them. This was a
-                      very unique role that had me working across design, development, and customer
-                      success. It also led to us being acquired by Acquia, which is a story in
-                      itself.
-                    </p>
-                    <p className="mb-0">&nbsp;</p>
-                    <p>
-                      There&apos;s also been a couple of insane stories like building a project over
-                      a weekend that lead to us being acquired. Building an entire website on stage
-                      at Acquia Engage. Or recording me building an entire website in a day to land
-                      a new customer.
+                      Before moving into engineering, I was Senior Frontend Designer for Site
+                      Studio. It was an unusual role that spanned design, development, and customer
+                      success, and it was instrumental in the acquisition by Acquia. A few
+                      highlights from that period: shipped a proof-of-concept over a weekend that
+                      directly contributed to the acquisition, built a full website live on stage at
+                      Acquia Engage, and recorded a soup-to-nuts site build in a single day to close
+                      a major customer.
                     </p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <p className="font-ppmondwest text-[24px] leading-[1.25]">
+                  <p className="font-ppmondwest text-[20px] leading-[1.25]">
                     Front-end Web Designer
                   </p>
                   <p className="font-ppmondwest text-[16px] leading-[1.25] text-[#929292]">
@@ -92,7 +90,7 @@ export default function About() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <p className="font-ppmondwest text-[24px] leading-[1.25]">
+                  <p className="font-ppmondwest text-[20px] leading-[1.25]">
                     UI/UX Designer &amp; Developer
                   </p>
                   <p className="font-ppmondwest text-[16px] leading-[1.25] text-[#929292]">
@@ -108,7 +106,7 @@ export default function About() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <p className="font-ppmondwest text-[24px] leading-[1.25]">Web Developer</p>
+                  <p className="font-ppmondwest text-[20px] leading-[1.25]">Web Developer</p>
                   <p className="font-ppmondwest text-[16px] leading-[1.25] text-[#929292]">
                     UnitedUS / 1 years, 2 Months
                   </p>
@@ -123,6 +121,10 @@ export default function About() {
             </div>
           </div>
         </section>
+      </FadeInUp>
+
+      <FadeInUp>
+        <SkillBadges />
       </FadeInUp>
 
       <FadeInUp>

@@ -54,64 +54,52 @@ export default function Home() {
           <div className="grid gap-5 md:grid-cols-4">
             <a
               href="https://yournexttale.com"
-              className="relative h-auto w-full flex flex-col gap-2 overflow-hidden"
+              className="relative h-auto w-full flex flex-col gap-2"
             >
-              <video
-                className="h-[240px] w-full object-cover overflow-hidden rounded-[8px]"
-                autoPlay
-                loop
-                muted
-              >
-                <source src="/videos/ynt.mp4" type="video/mp4" />
-              </video>
+              <div className="h-[240px] w-full rounded-[8px] overflow-hidden">
+                <video className="h-full w-full object-cover" autoPlay loop muted playsInline>
+                  <source src="/videos/ynt.mp4" type="video/mp4" />
+                </video>
+              </div>
               <p className="font-satoshi text-[14px] text-[#929292] leading-[1.5] font-medium">
                 Your Next Tale
               </p>
             </a>
             <a
               href="https://crisp.framer.website"
-              className="relative h-auto w-full flex flex-col gap-2 overflow-hidden"
+              className="relative h-auto w-full flex flex-col gap-2"
             >
-              <video
-                className="h-[240px] w-full object-cover overflow-hidden rounded-[8px]"
-                autoPlay
-                loop
-                muted
-              >
-                <source src="/videos/crisp.mp4" type="video/mp4" />
-              </video>
+              <div className="h-[240px] w-full rounded-[8px] overflow-hidden">
+                <video className="h-full w-full object-cover" autoPlay loop muted playsInline>
+                  <source src="/videos/crisp.mp4" type="video/mp4" />
+                </video>
+              </div>
               <p className="font-satoshi text-[14px] text-[#929292] leading-[1.5] font-medium">
                 Crisp Framer Template
               </p>
             </a>
             <a
               href="https://nifty.framer.website"
-              className="relative h-auto w-full flex flex-col gap-2 overflow-hidden"
+              className="relative h-auto w-full flex flex-col gap-2"
             >
-              <video
-                className="h-[240px] w-full object-cover overflow-hidden rounded-[8px]"
-                autoPlay
-                loop
-                muted
-              >
-                <source src="/videos/nifty.mp4" type="video/mp4" />
-              </video>
+              <div className="h-[240px] w-full rounded-[8px] overflow-hidden">
+                <video className="h-full w-full object-cover" autoPlay loop muted playsInline>
+                  <source src="/videos/nifty.mp4" type="video/mp4" />
+                </video>
+              </div>
               <p className="font-satoshi text-[14px] text-[#929292] leading-[1.5] font-medium">
                 Nifty Framer Template
               </p>
             </a>
             <a
               href="https://maybe.framer.website"
-              className="relative h-auto w-full flex flex-col gap-2 overflow-hidden"
+              className="relative h-auto w-full flex flex-col gap-2"
             >
-              <video
-                className="h-[240px] w-full object-cover overflow-hidden rounded-[8px]"
-                autoPlay
-                loop
-                muted
-              >
-                <source src="/videos/maybe.mp4" type="video/mp4" />
-              </video>
+              <div className="h-[240px] w-full rounded-[8px] overflow-hidden">
+                <video className="h-full w-full object-cover" autoPlay loop muted playsInline>
+                  <source src="/videos/maybe.mp4" type="video/mp4" />
+                </video>
+              </div>
               <p className="font-satoshi text-[14px] text-[#929292] leading-[1.5] font-medium">
                 Maybe Framer Template
               </p>

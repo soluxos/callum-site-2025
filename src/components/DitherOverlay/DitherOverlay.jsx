@@ -231,6 +231,8 @@ export default function DitherOverlay({
       }
 
       renderer.setClearColor(0x000000, 0);
+      canvas.style.cssText =
+        "position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 0.5s ease;";
       container.appendChild(canvas);
       rendererRef.current = renderer;
 
@@ -277,6 +279,7 @@ export default function DitherOverlay({
         const rect = container.getBoundingClientRect();
         const w = rect.width;
         const h = rect.height;
+        if (w === 0 || h === 0) return; // not yet laid out — wait for next observer tick
         renderer.setSize(w, h, false);
         const dpr = window.devicePixelRatio || 1;
         renderer.setPixelRatio(dpr);
@@ -337,11 +340,18 @@ export default function DitherOverlay({
       }
       nextSpawnRef.current = 0.5 + Math.random();
 
-      window.addEventListener("resize", resize);
+      // Prime with one synchronous render so the canvas has content before fading in
+      renderer.render(scene, camera);
+      requestAnimationFrame(() => {
+        canvas.style.opacity = "1";
+      });
+
+      const ro = new ResizeObserver(resize);
+      ro.observe(container);
       animRef.current = requestAnimationFrame(loop);
 
       cleanup = () => {
-        window.removeEventListener("resize", resize);
+        ro.disconnect();
         if (animRef.current) cancelAnimationFrame(animRef.current);
         renderer.dispose();
         material.dispose();

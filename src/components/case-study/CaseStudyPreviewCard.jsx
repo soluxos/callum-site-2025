@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion } from "motion/react";
 import AnimatedGradientBackground from "@/components/AnimatedGradientBackground/AnimatedGradientBackground";
 import GlowTitle from "@/components/GlowTitle/GlowTitle";
 
@@ -16,12 +17,17 @@ export default function CaseStudyPreviewCard({
   className = "",
 }) {
   const [glowKey, setGlowKey] = useState(0);
+  const [hovered, setHovered] = useState(false);
 
   return (
     <Link
       href={href}
       className={`flex flex-col gap-2 ${className}`}
-      onMouseEnter={() => setGlowKey(k => k + 1)}
+      onMouseEnter={() => {
+        setGlowKey(k => k + 1);
+        setHovered(true);
+      }}
+      onMouseLeave={() => setHovered(false)}
     >
       <div className="relative h-[360px] w-full overflow-hidden rounded-[16px] bg-[#929292]">
         <AnimatedGradientBackground
@@ -41,14 +47,22 @@ export default function CaseStudyPreviewCard({
             left: 0,
           }}
         />
-        <div className="bg-[rgba(0,0,0,0.2)] absolute inset-0" />
+        <motion.div
+          className="absolute inset-0"
+          animate={{ backgroundColor: hovered ? "rgba(0,0,0,0)" : "rgba(0,0,0,0.2)" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        />
         <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
           {badge && (
             <p className="absolute top-5 left-5 font-satoshi font-bold uppercase text-[10px] leading-[1.5] bg-white text-[#929292] px-2 rounded-full self-start">
               {badge}
             </p>
           )}
-          <div className="relative flex flex-col items-center justify-center text-center">
+          <motion.div
+            className="relative flex flex-col items-center justify-center text-center"
+            animate={{ y: hovered ? -8 : 0 }}
+            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          >
             {logo && (
               <div className="h-10 flex items-end justify-center mb-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -66,7 +80,7 @@ export default function CaseStudyPreviewCard({
                 {description}
               </p>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </Link>
