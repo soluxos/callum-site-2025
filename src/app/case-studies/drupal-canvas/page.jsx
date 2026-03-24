@@ -238,9 +238,10 @@ export default function DrupalCanvasCaseStudy() {
                 to work from. From here I organised everything into a clear atomic design system.
               </p>
               <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
-                While organising I improved on the UI of each of our components. Due to the deep
-                technical complexity of the product, there were some aspects of our UI that weren't
-                very intuitive, or just weren't fit for the job.
+                While organising I improved on the UI for each of the components. Due to the deep
+                technical complexity of Drupal, there were some aspects of our UI that needed
+                updating. For other areas I created completely new components to make our interface
+                more intuitive.
               </p>
               <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
                 Since then I have led a comprehensive redesign of the UI, worked with developers

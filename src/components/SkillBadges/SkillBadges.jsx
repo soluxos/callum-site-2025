@@ -125,9 +125,9 @@ export default function SkillBadges() {
 
       const engine = Engine.create({
         gravity: { y: 1.8 },
-        positionIterations: 20,
-        velocityIterations: 12,
-        constraintIterations: 6,
+        positionIterations: 10,
+        velocityIterations: 6,
+        constraintIterations: 4,
       });
 
       // Badge bodies
@@ -403,36 +403,6 @@ export default function SkillBadges() {
             blastBody = null;
           }
         }
-
-        // Hard-clamp any body that tunnelled through a wall back inside bounds.
-        // This runs after physics so it never affects the explosion force.
-        const currentW = containerRef.current ? containerRef.current.offsetWidth : W;
-        const currentH = containerRef.current ? containerRef.current.offsetHeight : H;
-        const leftBound = INNER_PAD;
-        const rightBound = currentW - INNER_PAD;
-        const bottomBound = currentH - INNER_PAD;
-        [...badgeBodies, ...ballBodies].forEach(b => {
-          let px = b.position.x;
-          let py = b.position.y;
-          const r = b._r ?? Math.max(b._w ?? 0, b._h ?? 0) / 2;
-          let clamped = false;
-          if (px - r < leftBound) {
-            px = leftBound + r;
-            Body.setVelocity(b, { x: Math.abs(b.velocity.x), y: b.velocity.y });
-            clamped = true;
-          }
-          if (px + r > rightBound) {
-            px = rightBound - r;
-            Body.setVelocity(b, { x: -Math.abs(b.velocity.x), y: b.velocity.y });
-            clamped = true;
-          }
-          if (py + r > bottomBound) {
-            py = bottomBound - r;
-            Body.setVelocity(b, { x: b.velocity.x, y: -Math.abs(b.velocity.y) });
-            clamped = true;
-          }
-          if (clamped) Body.setPosition(b, { x: px, y: py });
-        });
 
         // Sync dynamite
         if (dynamiteBody && dynamiteState === "live" && dynamiteElRef.current) {
