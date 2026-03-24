@@ -4,7 +4,8 @@ export const CASE_STUDIES = [
     href: "/case-studies/drupal-canvas",
     preset: "ocean",
     title: "Drupal Canvas",
-    description: "How I designed and shipped the future of building and editing sites with Drupal",
+    description:
+      "How I designed and shipped the future of building and editing sites with Drupal powering over 4500 websites",
     logo: "/images/logos/acquia-logo.svg",
     logoAlt: "Acquia logo",
     badge: "Public",

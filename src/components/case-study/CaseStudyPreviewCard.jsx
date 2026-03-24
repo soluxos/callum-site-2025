@@ -49,7 +49,7 @@ export default function CaseStudyPreviewCard({
         />
         <motion.div
           className="absolute inset-0"
-          animate={{ backgroundColor: hovered ? "rgba(0,0,0,0)" : "rgba(0,0,0,0.2)" }}
+          animate={{ backgroundColor: hovered ? "rgba(0,0,0,0)" : "rgba(0,0,0,0)" }}
           transition={{ duration: 0.4, ease: "easeOut" }}
         />
         <div className="relative z-10 p-5 pb-10 w-full h-full flex flex-col justify-center items-center">
