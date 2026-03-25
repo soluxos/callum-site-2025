@@ -75,6 +75,30 @@ const ideas = [
     rotation: -0.6,
     text: "I want to keep adding new pieces of UI to my site, I'm just treating it like my playground for making the stuff I can't make at work! 🥸",
   },
+  {
+    id: "1774437247670",
+    x: 1098,
+    y: -435,
+    color: "orange",
+    rotation: 1.8,
+    text: "Your next tale ideas...",
+  },
+  {
+    id: "1774437259067",
+    x: 1271,
+    y: -357,
+    color: "yellow",
+    rotation: 1.5,
+    text: "I need to look into creating a dynamic book search/scraper. For this I'd be able to search for a book, it would find that book, but also create a data structure that is consistent between books for me.",
+  },
+  {
+    id: "1774437307359",
+    x: 1046,
+    y: -282,
+    color: "yellow",
+    rotation: 1.3,
+    text: "I need to look into the design for a user profile. This would feel almost like Instagram, but with book shelves...",
+  },
 ];
 
 export default ideas;

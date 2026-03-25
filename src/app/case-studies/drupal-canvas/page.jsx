@@ -268,7 +268,8 @@ export default function DrupalCanvasCaseStudy() {
                 the design system to fully reflect this. I found that Radix offered a design system
                 file for the atomic elements. With this I had the core building blocks, however, I
                 needed to remove all of the options that we weren't going to utilise for other
-                designers on the team.
+                designers on the team. Removing options meant that a designer couldn't make an
+                incorrect UI anymore.
               </p>
               <p className="max-w-[588px] text-[14px] font-medium leading-[1.5] text-[#656565]">
                 Over time I designed a lot of components to be more intuitive and better suited to
