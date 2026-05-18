@@ -6,6 +6,7 @@ import CaseStudySlider from "@/components/case-study/CaseStudySlider";
 import FadeInUp from "@/components/FadeInUp/FadeInUp";
 import CaseStudyCards from "@/components/case-study/CaseStudyCards";
 import CaseStudyCard from "@/components/case-study/CaseStudyCard";
+import STARBreakdown from "@/components/case-study/STARBreakdown";
 
 export default function DrupalCanvasCaseStudy() {
   const sections = [
@@ -17,6 +18,7 @@ export default function DrupalCanvasCaseStudy() {
     "Being acquired",
     "Results",
     "End notes",
+    "STAR breakdown",
   ];
 
   const metaItems = [
@@ -214,6 +216,10 @@ export default function DrupalCanvasCaseStudy() {
                 </p>
               </div>
             </CaseStudySection>
+          </FadeInUp>
+
+          <FadeInUp>
+            <STARBreakdown caseStudyId="site-studio-cohesion" />
           </FadeInUp>
         </main>
       </CaseStudyLayout>

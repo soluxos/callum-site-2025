@@ -5,6 +5,7 @@ import CaseStudySection from "@/components/case-study/CaseStudySection";
 import CaseStudySlider from "@/components/case-study/CaseStudySlider";
 import PasswordGate from "@/components/PasswordGate/PasswordGate";
 import { cookies } from "next/headers";
+import STARBreakdown from "@/components/case-study/STARBreakdown";
 
 const heroImage = "/images/case-studies/acquia-ai/hero.png";
 const whatIveDone1 = "/images/case-studies/acquia-ai/what-ive-done-1.png";
@@ -21,6 +22,7 @@ export default async function AcquiaAICaseStudy() {
     "What I've done",
     "What it looks like",
     "End notes",
+    "STAR breakdown",
   ];
 
   return (
@@ -211,7 +213,7 @@ export default async function AcquiaAICaseStudy() {
                 </p>
               </div>
             </CaseStudySection>
-          </main>
+            <STARBreakdown caseStudyId="acquia-ai" />          </main>
         </CaseStudyLayout>
       </>
     </PasswordGate>

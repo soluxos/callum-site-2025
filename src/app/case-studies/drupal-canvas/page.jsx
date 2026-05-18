@@ -6,6 +6,7 @@ import CaseStudySlider from "@/components/case-study/CaseStudySlider";
 import FadeInUp from "@/components/FadeInUp/FadeInUp";
 import CaseStudyCards from "@/components/case-study/CaseStudyCards";
 import CaseStudyCard from "@/components/case-study/CaseStudyCard";
+import STARBreakdown from "@/components/case-study/STARBreakdown";
 
 const workFrameImage = "/images/case-studies/drupal-canvas/drupal-canvas-hero.png";
 
@@ -35,6 +36,7 @@ export default function DrupalCanvasCaseStudy() {
     "What I've done",
     "Results",
     "End notes",
+    "STAR breakdown",
   ];
 
   const metaItems = [
@@ -414,7 +416,9 @@ export default function DrupalCanvasCaseStudy() {
               </div>
             </CaseStudySection>
           </FadeInUp>
-        </main>
+          <FadeInUp>
+            <STARBreakdown caseStudyId="drupal-canvas" />
+          </FadeInUp>        </main>
       </CaseStudyLayout>
     </>
   );

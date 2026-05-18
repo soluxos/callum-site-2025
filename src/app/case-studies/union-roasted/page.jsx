@@ -4,6 +4,7 @@ import CaseStudyLayout from "@/components/case-study/CaseStudyLayout";
 import CaseStudySection from "@/components/case-study/CaseStudySection";
 import CaseStudySlider from "@/components/case-study/CaseStudySlider";
 import Image from "next/image";
+import STARBreakdown from "@/components/case-study/STARBreakdown";
 
 const workFrameImage = "/images/case-studies/drupal-canvas/drupal-canvas-hero.png";
 
@@ -33,6 +34,7 @@ export default function DrupalCanvasCaseStudy() {
     "My involvement",
     "What it looks like",
     "End notes",
+    "STAR breakdown",
   ];
 
   const metaItems = [
@@ -289,6 +291,8 @@ export default function DrupalCanvasCaseStudy() {
               </p>
             </div>
           </CaseStudySection>
+
+          <STARBreakdown caseStudyId="union-roasted" />
         </main>
       </CaseStudyLayout>
     </>
